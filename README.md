@@ -11,9 +11,9 @@ Sistema de Calculo das Atividades Complementares
 
 Apenas ter o Docker instalado,
 todo o ambiente é configurado pelos arquivos:
-- Dockerfile
-- docker-compose.yml
-- todos os arquivos do diretório e subdiretórios de "./docker"
+- `Dockerfile`
+- `docker-compose.yml`
+- todos os arquivos do diretório e subdiretórios de `./docker`
 
 ### Comandos para executar com docker compose
 
