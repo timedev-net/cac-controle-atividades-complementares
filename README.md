@@ -1,6 +1,6 @@
 ## CAC - Calculo das Atividades Complementares
 Sistema de Calculo das Atividades Complementares
-Desenvolvido com CodeIgniter 4 por Daniel de Brito Frota
+- Desenvolvido com CodeIgniter 4 :+1:
 
 ### Funcionalidades do sistema
 - Cadastra alunos e atividades complementares
