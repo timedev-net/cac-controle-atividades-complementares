@@ -9,7 +9,7 @@ Sistema de Calculo das Atividades Complementares
 
 ### Requerimentos para execução do projeto
 
-Apenas ter o Docker instalado
+Apenas ter o Docker instalado,
 todo o ambiente é configurado pelos arquivos:
 - Dockerfile
 - docker-compose.yml
