@@ -1,0 +1,19 @@
+# .env
+.idea/
+.vscode/
+application/logs
+application/cache
+application/config/config.php
+
+application/config/routes/relatorios/__relatorios.php
+
+vendor/
+uploads/
+!uploads/.keep
+auditoria/
+!auditoria/.keep
+
+writable/
+# docker-compose.yml
+
+tmp/
