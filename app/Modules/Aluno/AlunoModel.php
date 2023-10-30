@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Home;
+namespace App\Modules\Aluno;
 
 // use App\Modules\BaseController;
 
@@ -9,26 +9,43 @@ use CodeIgniter\Model;
 
 class AlunoModel extends Model 
 {
-
-    protected $table = 'public.migrations';
-
     public function __construct() {
         parent::__construct();
         $this->db = db_connect();
+        $this->builder = $this->db->table('alunos a');
     }
 
-    public function getAll(): array
+    
+    public function getAll($filters = []): array
     {
-        // $db = db_connect();
+        $filters = array_merge(['search' => '', 'page' => 1, 'perPage' => 10], $filters);
+        $offset = ($filters['page'] - 1) * $filters['perPage'];
         
-        
-        // $this->db->from($table);
-        $query = $this->db->query('select 1');
-        // $query = $this->db->get();
-        // $query2 = $query->result();
+        // $this->builder->select('a.nome');
+        $this->builder->like("a.nome", $filters['search'],'both',null,true);
+        $this->builder->limit($filters['perPage'], $offset);
 
-        dd($query);
+        $data = $this->builder->get()->getResult();
+        $total = $this->db->query('select count(a.*) from alunos a')->getResult();
+        $totalPages = ceil($total[0]->count/$filters['perPage']);
 
-        return ["Aqui é a model"];
+        return [
+            'data' => $data,
+            'page' => $filters['page'],
+            'perPage' => $filters['perPage'],
+            'totalItens' => $total[0]->count,
+            'totalPages' => $totalPages,
+        ];
+    }
+
+    public function cadastrar($data) {
+        $this->builder->insert($data);
+    }
+    public function atualizar($id, $data) {
+
     }
 }
+
+// $this->db->query("select a.* from alunos a
+        //     where a.nome = ?
+        //     limit {$filters['perPage']} offset $offset", []);

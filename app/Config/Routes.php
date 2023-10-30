@@ -31,9 +31,24 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home\HomeController::index');
+
+// ALUNOS
 $routes->get('/alunos', 'Aluno\AlunoController::index');
+$routes->get('/aluno/novo', 'Aluno\AlunoController::showFormCreate');
+$routes->post('/aluno/novo', 'Aluno\AlunoController::create');
+$routes->get('/aluno/editar/(:any)', 'Aluno\AlunoController::showFormEdit/$1');
+$routes->post('/aluno/editar/(:any)', 'Aluno\AlunoController::update/$1');
+$routes->get('/aluno/deletar/(:any)', 'Aluno\AlunoController::delete/$1');
+
+// ATIVIDADES COMPLEMENTARES
 $routes->get('/atividades-complementares', 'AtividadeComplementar\AtividadeComplementarController::index');
+$routes->get('/atividades-complementares/analisar', 'AtividadeComplementar\AtividadeComplementarController::index');
+
+// TIPOS DE ATIVIDADES
 $routes->get('/tipos-atividades', 'TpAtividade\TpAtividadeController::index');
+$routes->post('/tipos-atividades/novo', 'TpAtividade\TpAtividadeController::create');
+
+
 
 /*
  * --------------------------------------------------------------------
