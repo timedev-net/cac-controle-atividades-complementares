@@ -32,13 +32,12 @@ class AlunoController extends BaseController
     }
     public function update($id)
     {
-        // dd($id, $_POST);
         $this->model->atualizar($id, $_POST);
         return redirect()->to('/alunos');
-        // return view('Aluno/Views/index');
     }
-    public function delete(): string
+    public function delete($id)
     {
-        return view('Aluno/Views/index');
+        $this->model->deletar($id);
+        return redirect()->to('/alunos');
     }
 }

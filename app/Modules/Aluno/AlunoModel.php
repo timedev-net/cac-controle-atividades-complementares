@@ -51,4 +51,8 @@ class AlunoModel extends Model
     {
         $this->builder->update($data, ['id' => $id]);
     }
+
+    public function deletar($id) {
+        return $this->builder->delete(['id' => $id]);
+    }
 }
