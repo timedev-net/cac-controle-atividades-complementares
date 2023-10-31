@@ -30,7 +30,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 </head>
 
-<body class="bg-slate-400">
+<body class="bg-slate-600">
   <?php echo $this->include('_config/Layout/topBar'); ?>
   
     <?php echo $this->renderSection("conteudo"); ?>

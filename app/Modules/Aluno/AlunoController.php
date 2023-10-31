@@ -26,13 +26,16 @@ class AlunoController extends BaseController
     }
     public function showFormEdit($id): string
     {
-        dd($id);
-        return view('Aluno/Views/form');
+        $data = $this->model->getById($id);
+        $data['id'] = $id;
+        return view('Aluno/Views/form', $data);
     }
-    public function update($id): string
+    public function update($id)
     {
-        dd($id, $_POST);
-        return view('Aluno/Views/index');
+        // dd($id, $_POST);
+        $this->model->atualizar($id, $_POST);
+        return redirect()->to('/alunos');
+        // return view('Aluno/Views/index');
     }
     public function delete(): string
     {
