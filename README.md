@@ -31,3 +31,27 @@ executa as migrações
 desfaz as migrações
 - `php spark db:seed RunSeeder`
 semeia o banco de dados
+
+
+### Coisas a fazer:
+
+1ª Etapa
+ [ ] adicionar validação no formulário
+ [ ] fazer o tratamento dos erros
+ [ ] exibir mensagens de feedback de cadastro, atualização e exclusão
+ [ ] mudar logo e favicon do sistema
+
+2ª Etapa
+ [ ] fazer o CRUD de tipos de atividade
+ [ ] Criar tela para inserção das atividades, novo botão na linha da lista de alunos
+ [ ] Criar tela para analisar as solicitações, exibindo apenas as solicitações pendentes
+
+3ª Etapa
+ [ ] Criar uma tela para todos os relatórios de atividades completamentes
+ [ ] Criar uma tela para todos os relatórios de alunos
+
+4ª Etapa (atividades futuras)
+ [ ] Fazer autenticação
+ [ ] Documentar o uso do sistema
+ 
+
