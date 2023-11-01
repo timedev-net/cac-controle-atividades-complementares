@@ -2,11 +2,14 @@
 
 namespace App\Modules\Aluno;
 
+use App\Modules\Aluno\Utils\AlunoValidate;
 use App\Modules\BaseController;
 
 class AlunoController extends BaseController
 {
     private $model;
+    protected $helpers = ['form'];
+
     public function __construct() {
         $this->model = new AlunoModel();
     }
@@ -21,6 +24,9 @@ class AlunoController extends BaseController
     }
     public function create()
     {
+        if (!$this->validate(AlunoValidate::getRulesValidation())) {
+            return redirect()->back()->withInput();
+        }
         $this->model->cadastrar($_POST);
         return redirect()->to('/alunos');
     }
