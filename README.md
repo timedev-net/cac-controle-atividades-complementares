@@ -36,7 +36,7 @@ semeia o banco de dados
 ### Coisas a fazer:
 
 1ª Etapa
- [ ] adicionar validação no formulário
+ [x] adicionar validação no formulário
  [ ] fazer o tratamento dos erros
  [ ] exibir mensagens de feedback de cadastro, atualização e exclusão
  [ ] mudar logo e favicon do sistema

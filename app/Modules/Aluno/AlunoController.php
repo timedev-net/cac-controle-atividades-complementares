@@ -13,15 +13,18 @@ class AlunoController extends BaseController
     public function __construct() {
         $this->model = new AlunoModel();
     }
+
     public function index(): string
     {
         $data = $this->model->getAll($_GET);
         return view('Aluno/Views/index', $data);
     }
+
     public function showFormCreate(): string
     {
         return view('Aluno/Views/form');
     }
+
     public function create()
     {
         if (!$this->validate(AlunoValidate::getRulesValidation())) {
@@ -30,17 +33,23 @@ class AlunoController extends BaseController
         $this->model->cadastrar($_POST);
         return redirect()->to('/alunos');
     }
+
     public function showFormEdit($id): string
     {
         $data = $this->model->getById($id);
         $data['id'] = $id;
         return view('Aluno/Views/form', $data);
     }
+
     public function update($id)
     {
+        if (!$this->validate(AlunoValidate::getRulesValidation())) {
+            return redirect()->back()->withInput();
+        }
         $this->model->atualizar($id, $_POST);
         return redirect()->to('/alunos');
     }
+
     public function delete($id)
     {
         $this->model->deletar($id);

@@ -20,6 +20,7 @@ class AlunoValidate {
                     'required' => 'A matrícula é obrigatória',
                     'min_length' => 'A matrícula deve ter no mínimo 10 números',
                     'max_length' => 'A matrícula deve ter no máximo 15 números',
+                    'is_unique' => 'Essa matrícula já foi cadastrada anteriormente, verifique!',
                 ]
             ],
             'email' => [
