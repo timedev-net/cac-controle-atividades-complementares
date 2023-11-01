@@ -4,6 +4,7 @@ namespace App\Modules\Aluno;
 
 use App\Modules\Aluno\Utils\AlunoValidate;
 use App\Modules\BaseController;
+use CodeIgniter\Database\Exceptions\DatabaseException;
 
 class AlunoController extends BaseController
 {
@@ -17,6 +18,15 @@ class AlunoController extends BaseController
     public function index(): string
     {
         $data = $this->model->getAll($_GET);
+        
+        $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
+        $this->session->setFlashdata('error', 'deu erro!');
+        $this->session->setFlashdata('info', 'agora é só um teste');
+
+        if (!empty($this->session->getFlashdata())) {
+            $data['message'] = $this->session->getFlashdata();
+        }
+        
         return view('Aluno/Views/index', $data);
     }
 
@@ -52,7 +62,13 @@ class AlunoController extends BaseController
 
     public function delete($id)
     {
-        $this->model->deletar($id);
-        return redirect()->to('/alunos');
+        try {
+            $this->model->deletar($id);
+            $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
+            return redirect()->to('/alunos');
+        } catch (DatabaseException $e) {
+            $this->session->setFlashdata('error', 'Erro ao excluir o aluno!');
+            return redirect()->to('/alunos');
+        }
     }
 }

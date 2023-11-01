@@ -37,8 +37,8 @@ semeia o banco de dados
 
 1ª Etapa
  [x] adicionar validação no formulário
+ [/] exibir mensagens de feedback de cadastro, atualização e exclusão
  [ ] fazer o tratamento dos erros
- [ ] exibir mensagens de feedback de cadastro, atualização e exclusão
  [ ] mudar logo e favicon do sistema
 
 2ª Etapa

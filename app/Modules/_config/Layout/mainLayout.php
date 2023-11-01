@@ -33,7 +33,7 @@
 <body class="bg-slate-600">
   <?php echo $this->include('_config/Layout/topBar'); ?>
   
-    <?php echo $this->renderSection("conteudo"); ?>
+  <?php echo $this->renderSection("conteudo"); ?>
   
   <footer class="mx-[300px] mt-2 text-center">
     <div class="environment">
