@@ -1,9 +1,6 @@
 <?= $this->extend('_config/Layout/mainLayout'); ?>
-
 <?= $this->section('conteudo'); ?>
-  <?= $this->include('_config/alerts/messageToast'); ?>
-  <?= $this->include('_config/alerts/confirmDeleteModal'); ?>
-
+  
   <div class="xl:mx-[210px] m-4">
     <p class=" text-3xl text-center font-semibold pb-4">Lista de Alunos</p>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -127,13 +124,14 @@
     </div>
   </div>
 
+  <?= $this->include('_config/alerts/messageToast'); ?>
+  <?= $this->include('_config/alerts/confirmDeleteModal'); ?>
+
   <script>
     let idAluno;
-
     function excluir(id) {
       idAluno = id
     }
-
     function confirmDelete() {
       window.open(`/aluno/deletar/${idAluno}`, "_self")
     }
