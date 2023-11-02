@@ -12,7 +12,34 @@
       theme: {
         extend: {
           colors: {
-            clifford: '#da373d',
+            
+            meuBranco: '#f7fee7',
+            meuCinza: {
+              50: '#fafafa',
+              100: '#f5f5f5',
+              200: '#e5e5e5',
+              300: '#d4d4d4',
+              400: '#a3a3a3',
+              500: '#737373',
+              600: '#525252',
+              700: '#404040',
+              800: '#262626',
+              900: '#171717',
+              950: '#0a0a0a',
+            },
+            meuTema: {
+              50: '#f7fee7',
+              100: '#ecfccb',
+              200: '#d9f99d',
+              300: '#bef264',
+              400: '#a1a1aa',
+              500: '#84cc16',
+              600: '#65a30d',
+              700: '#4d7c0f',
+              800: '#3f6212',
+              900: '#1a2e05',
+              950: '#0b1402',
+            },
           }
         }
       }
@@ -30,25 +57,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 </head>
 
-<body class="bg-slate-600">
+<body class="bg-meuTema-200 dark:bg-meuTema-900">
   <?php echo $this->include('_config/Layout/topBar'); ?>
   
   <?php echo $this->renderSection("conteudo"); ?>
   
-  <footer class="mx-[300px] mt-2 text-center">
-    <div class="environment">
-      <p>Tempo de renderização da página: {elapsed_time} segundos</p>
-      <p>Environment:
-        <?= ENVIRONMENT ?>
-      </p>
-    </div>
+  <footer class="text-center">
     <div class="copyrights">
-      <p>&copy;
+      <p class="dark:text-meuCinza-400 text-meuCinza-500">&copy;
         <?= date('Y') ?> Desenvolvido pelo acadêmico Daniel de Brito Frota.
       </p>
     </div>
+    <div class="environment">
+      <p class="dark:text-meuCinza-400 text-meuCinza-500">Tempo de renderização da página: {elapsed_time} segundos</p>
+      <p class="dark:text-meuCinza-400 text-meuCinza-500">Environment:
+        <?= ENVIRONMENT ?>
+      </p>
+    </div>
   </footer>
-  <?php echo $this->renderSection("scripts"); ?>
 </body>
 
 </html>

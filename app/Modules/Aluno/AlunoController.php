@@ -41,6 +41,7 @@ class AlunoController extends BaseController
             return redirect()->back()->withInput();
         }
         $this->model->cadastrar($_POST);
+        $this->session->setFlashdata('success', 'Aluno cadastrado com sucesso!');
         return redirect()->to('/alunos');
     }
 
@@ -57,6 +58,7 @@ class AlunoController extends BaseController
             return redirect()->back()->withInput();
         }
         $this->model->atualizar($id, $_POST);
+        $this->session->setFlashdata('success', 'Aluno atualizado com sucesso!');
         return redirect()->to('/alunos');
     }
 
@@ -67,7 +69,7 @@ class AlunoController extends BaseController
             $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
             return redirect()->to('/alunos');
         } catch (DatabaseException $e) {
-            $this->session->setFlashdata('error', 'Erro ao excluir o aluno!');
+            $this->session->setFlashdata('error', 'Erro ao excluir o registro!');
             return redirect()->to('/alunos');
         }
     }
