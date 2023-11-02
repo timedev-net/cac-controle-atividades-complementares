@@ -38,8 +38,8 @@ class TpAtividadeController extends BaseController
             return redirect()->back()->withInput();
         }
         $this->model->cadastrar($_POST);
-        $this->session->setFlashdata('success', 'TpAtividade cadastrado com sucesso!');
-        return redirect()->to('/TpAtividades');
+        $this->session->setFlashdata('success', 'Registro cadastrado com sucesso!');
+        return redirect()->to('/tp-atividades');
     }
 
     public function showFormEdit($id): string
@@ -55,8 +55,8 @@ class TpAtividadeController extends BaseController
             return redirect()->back()->withInput();
         }
         $this->model->atualizar($id, $_POST);
-        $this->session->setFlashdata('success', 'TpAtividade atualizado com sucesso!');
-        return redirect()->to('/TpAtividades');
+        $this->session->setFlashdata('success', 'Registro atualizado com sucesso!');
+        return redirect()->to('/tp-atividades');
     }
 
     public function delete($id)
@@ -64,10 +64,10 @@ class TpAtividadeController extends BaseController
         try {
             $this->model->deletar($id);
             $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
-            return redirect()->to('/TpAtividades');
+            return redirect()->to('/tp-atividades');
         } catch (DatabaseException $e) {
             $this->session->setFlashdata('error', 'Erro ao excluir o registro!');
-            return redirect()->to('/TpAtividades');
+            return redirect()->to('/tp-atividades');
         }
     }
 }

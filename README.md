@@ -43,7 +43,7 @@ semeia o banco de dados
  [X] mudar logo e favicon do sistema
 
 2ª Etapa
- [ ] fazer o CRUD de tipos de atividade
+ [X] fazer o CRUD de tipos de atividade
  [ ] Criar tela para inserção das atividades, novo botão na linha da lista de alunos
  [ ] Criar tela para analisar as solicitações, exibindo apenas as solicitações pendentes
 

@@ -18,15 +18,13 @@ class AlunoController extends BaseController
     public function index(): string
     {
         $data = $this->model->getAll($_GET);
-        
-        $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
-        $this->session->setFlashdata('error', 'deu erro!');
-        $this->session->setFlashdata('info', 'agora é só um teste');
+        // $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
+        // $this->session->setFlashdata('error', 'deu erro!');
+        // $this->session->setFlashdata('info', 'agora é só um teste');
 
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
         }
-        
         return view('Aluno/Views/index', $data);
     }
 

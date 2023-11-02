@@ -2,7 +2,7 @@
 <?= $this->section('conteudo'); ?>
 
   <div class="xl:mx-[210px] m-4">
-    <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Lista - Tipos de Atividade</p>
+    <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Tipos de Atividade</p>
     <div class="relative shadow-md sm:rounded-lg">
       <div class="p-4 flex items-center justify-between pb-4 bg-meuBranco dark:bg-meuTema-800">
         <div>
