@@ -37,9 +37,10 @@ semeia o banco de dados
 
 1ª Etapa
  [x] adicionar validação no formulário
- [/] exibir mensagens de feedback de cadastro, atualização e exclusão
- [ ] fazer o tratamento dos erros
- [ ] mudar logo e favicon do sistema
+ [X] exibir mensagens de feedback de cadastro, atualização e exclusão
+ [X] personalização do sistema com temas
+ [X] fazer o tratamento dos erros
+ [X] mudar logo e favicon do sistema
 
 2ª Etapa
  [ ] fazer o CRUD de tipos de atividade

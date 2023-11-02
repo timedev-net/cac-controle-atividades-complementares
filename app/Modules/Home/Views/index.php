@@ -3,8 +3,8 @@
 
 <section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-meuBranco md:text-5xl lg:text-6xl">Investimos no potencial do mundo</h1>
-        <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Aqui na CAC concentramo-nos em mercados onde a tecnologia, a inovação e o capital podem desbloquear valor a longo prazo e impulsionar o crescimento econômico.</p>
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-meuBranco md:text-5xl lg:text-6xl">A melhor forma de manter o controle</h1>
+        <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Com o uso da tecnologia o sistema CAC soluciona de uma vez por todas a dificuldade de análise das horas complementares, melhora o controle e otimiza o seu tempo.<br/>É a inovação agregando valor e impulsionar o crescimento.</p>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="/alunos" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-meuBranco rounded-lg bg-meuTema-700 hover:bg-meuTema-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                 Iniciar
