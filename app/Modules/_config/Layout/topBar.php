@@ -1,8 +1,8 @@
 <nav class="bg-meuTema-50 border-meuCinza-200 dark:bg-meuTema-950 dark:border-meuCinza-700">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="#" class="flex items-center">
-      <img src="/logo/logo2.png" class="h-10 mr-3" alt="CAC Logo" />
-      <img src="/logo/text.png" class="w-96 mr-3" alt="text" />
+      <img src="/assets/logo2.png" class="h-10 mr-3" alt="CAC Logo" />
+      <img src="/assets/text.png" class="w-96 mr-3" alt="text" />
       <!-- <div class="flex flex-col h-14">
         <span class="self-start text-2xl font-semibold meuBrancospace-nowrap dark:text-meuBranco">CAC</span>
         <span class="self-center text-sm meuBrancospace-nowrap dark:text-meuBranco">Controle de Atividades Complementares</span>

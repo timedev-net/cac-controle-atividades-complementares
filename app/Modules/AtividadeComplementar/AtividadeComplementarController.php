@@ -2,8 +2,10 @@
 
 namespace App\Modules\AtividadeComplementar;
 
+use App\Modules\Aluno\AlunoModel;
 use App\Modules\BaseController;
 use App\Modules\AtividadeComplementar\Utils\AtividadeComplementarValidate;
+use App\Modules\TpAtividade\TpAtividadeModel;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
 class AtividadeComplementarController extends BaseController
@@ -30,17 +32,24 @@ class AtividadeComplementarController extends BaseController
 
     public function showFormCreate(): string
     {
-        return view('AtividadeComplementar/Views/form');
+        $alunos = new AlunoModel();
+        $tp_atividades = new TpAtividadeModel();
+        $data = [
+            'alunos' => $alunos->getAllToSelectInput(),
+            'tp_atividades' => $tp_atividades->getAllToSelectInput()
+        ];
+        return view('AtividadeComplementar/Views/form', $data);
     }
 
     public function create()
     {
         if (!$this->validate(AtividadeComplementarValidate::getRulesValidation())) {
+            // dd('entrou aqui', $_POST);
             return redirect()->back()->withInput();
         }
         $this->model->cadastrar($_POST);
-        $this->session->setFlashdata('success', 'AtividadeComplementar cadastrado com sucesso!');
-        return redirect()->to('/atividadecomplementars');
+        $this->session->setFlashdata('success', 'Atividade complementar cadastrada com sucesso!');
+        return redirect()->to('/atividades-complementares');
     }
 
     public function showFormEdit($id): string
@@ -56,8 +65,8 @@ class AtividadeComplementarController extends BaseController
             return redirect()->back()->withInput();
         }
         $this->model->atualizar($id, $_POST);
-        $this->session->setFlashdata('success', 'AtividadeComplementar atualizado com sucesso!');
-        return redirect()->to('/atividadecomplementars');
+        $this->session->setFlashdata('success', 'Atividade complementar atualizada com sucesso!');
+        return redirect()->to('/atividades-complementares');
     }
 
     public function delete($id)
@@ -65,10 +74,10 @@ class AtividadeComplementarController extends BaseController
         try {
             $this->model->deletar($id);
             $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
-            return redirect()->to('/atividadecomplementars');
+            return redirect()->to('/atividades-complementares');
         } catch (DatabaseException $e) {
             $this->session->setFlashdata('error', 'Erro ao excluir o registro!');
-            return redirect()->to('/atividadecomplementars');
+            return redirect()->to('/atividades-complementares');
         }
     }
 }

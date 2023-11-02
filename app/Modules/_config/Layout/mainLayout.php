@@ -12,7 +12,7 @@
       theme: {
         extend: {
           colors: {
-            
+
             meuBranco: '#f7fee7',
             meuCinza: {
               50: '#fafafa',
@@ -53,15 +53,19 @@
         }
   </style>
   <link rel="shortcut icon" type="image/png" href="/favicon.ico">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+  <script src="<?= base_url("/js/jquery-3.7.1.min.js"); ?>"></script>
+  <link href="<?= base_url("/css/flowbite.min.css"); ?>" rel="stylesheet">
+  <script src="<?= base_url("/js/flowbite.min.js"); ?>"></script>
+  <link href="<?= base_url("/css/select2.min.css"); ?>" rel="stylesheet">
+  <script src="<?= base_url("/js/select2.min.js"); ?>"></script>
+  <link href="<?= base_url("/css/select2-bootstrap4.min.css"); ?>" rel="stylesheet">
 </head>
 
 <body class="bg-meuTema-200 dark:bg-meuTema-900">
   <?php echo $this->include('_config/Layout/topBar'); ?>
-  
+
   <?php echo $this->renderSection("conteudo"); ?>
-  
+
   <footer class="text-center">
     <div class="copyrights">
       <p class="dark:text-meuCinza-400 text-meuCinza-500">&copy;

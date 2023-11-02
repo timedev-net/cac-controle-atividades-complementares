@@ -18,6 +18,10 @@ class AtividadeComplementarValidate {
                 'rules' => 'required',
                 'errors' => ['required' => 'O campo é obrigatório']
             ],
+            'curricular' => [
+                'rules' => 'required',
+                'errors' => ['required' => 'O campo é obrigatório']
+            ],
             'tp_atividade_id' => [
                 'rules' => 'required',
                 'errors' => ['required' => 'O campo é obrigatório']
@@ -42,10 +46,7 @@ class AtividadeComplementarValidate {
                 'rules' => 'required',
                 'errors' => ['required' => 'O campo é obrigatório']
             ],
-            'curricular' => [
-                'rules' => 'required',
-                'errors' => ['required' => 'O campo é obrigatório']
-            ],
+
         ];
 
         return $regras_validacao;

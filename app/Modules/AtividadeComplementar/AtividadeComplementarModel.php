@@ -17,7 +17,6 @@ class AtividadeComplementarModel extends Model
   {
     $filters = array_merge(['search' => '', 'page' => 1, 'perPage' => 10], $filters);
     $offset = ($filters['page'] - 1) * $filters['perPage'];
-
     // $this->builder->select('a.nome');
     $this->builder->like("a.nome_atividade", $filters['search'], 'both', null, true);
     $this->builder->limit($filters['perPage'], $offset);
