@@ -2,33 +2,57 @@
 
 namespace App\Modules\TpAtividade;
 
-// use App\Modules\BaseController;
-
-
 use CodeIgniter\Model;
 
-class TpAtividadeModel extends Model 
+class TpAtividadeModel extends Model
 {
-
-    protected $table = 'public.migrations';
-
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->db = db_connect();
+        $this->builder = $this->db->table('tp_atividades a');
     }
 
-    public function getAll(): array
+    public function getAll($filters = []): array
     {
-        // $db = db_connect();
-        
-        
-        // $this->db->from($table);
-        $query = $this->db->query('select 1');
-        // $query = $this->db->get();
-        // $query2 = $query->result();
+        $filters = array_merge(['search' => '', 'page' => 1, 'perPage' => 10], $filters);
+        $offset = ($filters['page'] - 1) * $filters['perPage'];
 
-        dd($query);
+        // $this->builder->select('a.nome');
+        $this->builder->like("a.nome", $filters['search'], 'both', null, true);
+        $this->builder->limit($filters['perPage'], $offset);
+        $this->builder->orderBy('a.nome', 'asc');
 
-        return ["Aqui é a model"];
+        $data = $this->builder->get()->getResult();
+        $total = $this->db->query('select count(a.*) from tp_atividades a')->getResult();
+        $totalPages = ceil($total[0]->count / $filters['perPage']);
+
+        return [
+            'data' => $data,
+            'page' => $filters['page'],
+            'perPage' => $filters['perPage'],
+            'totalItens' => $total[0]->count,
+            'totalPages' => $totalPages,
+        ];
+    }
+
+    public function getById($id)
+    {
+        $this->builder->where('id', $id);
+        $data = $this->builder->get()->getResult();
+        return $data;
+    }
+
+    public function cadastrar($data)
+    {
+        $this->builder->insert($data);
+    }
+    public function atualizar($id, $data)
+    {
+        $this->builder->update($data, ['id' => $id]);
+    }
+
+    public function deletar($id) {
+        return $this->builder->delete(['id' => $id]);
     }
 }

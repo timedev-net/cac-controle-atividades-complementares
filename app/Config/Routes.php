@@ -45,8 +45,12 @@ $routes->get('/atividades-complementares', 'AtividadeComplementar\AtividadeCompl
 $routes->get('/atividades-complementares/analisar', 'AtividadeComplementar\AtividadeComplementarController::index');
 
 // TIPOS DE ATIVIDADES
-$routes->get('/tipos-atividades', 'TpAtividade\TpAtividadeController::index');
-$routes->post('/tipos-atividades/novo', 'TpAtividade\TpAtividadeController::create');
+$routes->get('/tp-atividades', 'TpAtividade\TpAtividadeController::index');
+$routes->get('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::showFormCreate');
+$routes->post('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::create');
+$routes->get('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::showFormEdit/$1');
+$routes->post('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::update/$1');
+$routes->get('/tp-atividade/deletar/(:any)', 'TpAtividade\TpAtividadeController::delete/$1');
 
 
 

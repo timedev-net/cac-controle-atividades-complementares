@@ -38,7 +38,7 @@
                 <a href="/atividades-complementares/analisar" class="block px-4 py-2 hover:bg-meuTema-100 dark:hover:bg-meuTema-600 dark:hover:text-meuBranco">Analisar Solicitações</a>
               </li>
               <li>
-                <a href="/tipos-atividades" class="block px-4 py-2 hover:bg-meuTema-100 dark:hover:bg-meuTema-600 dark:hover:text-meuBranco">Tipos de Atividade</a>
+                <a href="/tp-atividades" class="block px-4 py-2 hover:bg-meuTema-100 dark:hover:bg-meuTema-600 dark:hover:text-meuBranco">Tipos de Atividade</a>
               </li>
             </ul>
           </div>
