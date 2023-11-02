@@ -8,17 +8,17 @@ $a = !empty($this->data) ? $this->data[0] : null;
 
     <form class="bg-white dark:bg-meuTema-800 p-8" method="post" action="<?= empty($a) ? '/aluno/novo' : "/aluno/editar/$a->id" ?>">
       <div class="mb-6">
-        <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do Aluno</label>
+        <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome do Aluno <span class="text-red-500">*</span></label>
         <input name="nome" value="<?= empty($a) ? '' : $a->nome ?>" type="text" id="nome" class="bg-meuTema-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
         <span class="text-red-500"><?= validation_show_error('nome'); ?></span>
       </div>
       <div class="mb-6">
-        <label for="matricula_suap" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Matrícula SUAP</label>
+        <label for="matricula_suap" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Matrícula SUAP <span class="text-red-500">*</span></label>
         <input name="matricula_suap" value="<?= empty($a) ? '' : $a->matricula_suap ?>" type="text" id="matricula_suap" class="bg-meuTema-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
         <span class="text-red-500"><?= validation_show_error('matricula_suap'); ?></span>
       </div>
       <div class="mb-6">
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail <span class="text-red-500">*</span></label>
         <input name="email" value="<?= empty($a) ? '' : $a->email ?>" type="email" id="email" class="bg-meuTema-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
         <span class="text-red-500"><?= validation_show_error('email'); ?></span>
       </div>

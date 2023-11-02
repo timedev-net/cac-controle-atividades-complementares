@@ -8,12 +8,12 @@ $a = !empty($this->data) ? $this->data[0] : null;
 
     <form class="bg-white dark:bg-meuTema-800 p-8" method="post" action="<?= empty($a) ? '/tp-atividade/novo' : "/tp-atividade/editar/$a->id" ?>">
       <div class="mb-6">
-        <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo da atividade</label>
+        <label for="nome" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo da atividade <span class="text-red-500">*</span></label>
         <input name="nome" value="<?= empty($a) ? '' : $a->nome ?>" type="text" id="nome" class="bg-meuTema-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
         <span class="text-red-500"><?= validation_show_error('nome'); ?></span>
       </div>
       <div class="mb-6">
-        <label for="curricular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">É atividade curricular?</label>
+        <label for="curricular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">É atividade curricular? <span class="text-red-500">*</span></label>
         <select id="curricular" name="curricular" class="bg-meuTema-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
             <option value="">Selecione uma opção</option>
             <option value="t" <?php if(!empty($a) && $a->curricular == 't') echo 'selected' ?>>Sim</option>
@@ -22,7 +22,7 @@ $a = !empty($this->data) ? $this->data[0] : null;
         <span class="text-red-500"><?= validation_show_error('curricular'); ?></span>
       </div>
       <div class="mb-6">
-        <label for="limite_hora" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Limite de horas</label>
+        <label for="limite_hora" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Limite de horas <span class="text-red-500">*</span></label>
         <input name="limite_hora" value="<?= empty($a) ? '' : $a->limite_hora ?>" type="number" id="limite_hora" class="bg-meuTema-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
         <span class="text-red-500"><?= validation_show_error('limite_hora'); ?></span>
       </div>
