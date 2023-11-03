@@ -1,7 +1,7 @@
 <?php echo $this->extend('_config/Layout/mainLayout'); ?>
 <?php echo $this->section('conteudo'); ?>
 
-<section class="bg-center bg-no-repeat bg-[url('/assets/conference.jpg')] bg-gray-700 bg-blend-multiply">
+<section class="mb-4 bg-center bg-no-repeat bg-[url('/assets/conference.jpg')] bg-gray-700 bg-blend-multiply">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-meuBranco md:text-5xl lg:text-6xl">A melhor forma de manter o controle</h1>
         <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Com o uso da tecnologia o sistema CAC soluciona de uma vez por todas a dificuldade de análise das horas complementares, melhora o controle e otimiza o seu tempo.<br/>É a inovação agregando valor e impulsionar o crescimento.</p>

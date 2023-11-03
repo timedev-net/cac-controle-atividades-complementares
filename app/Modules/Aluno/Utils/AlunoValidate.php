@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 namespace App\Modules\Aluno\Utils;
 
 class AlunoValidate {
-    public static function getRulesValidation() {
+    public static function getRulesValidation($id) {
 
         $regras_validacao = [
             'nome' => [
@@ -15,7 +15,7 @@ class AlunoValidate {
                 ]
             ],
             'matricula_suap' => [
-                'rules' => 'required|min_length[10]|max_length[15]|is_unique[alunos.matricula_suap]',
+                'rules' => empty($id)?'required|min_length[10]|max_length[15]|is_unique[alunos.matricula_suap]':'required|min_length[10]|max_length[15]',
                 'errors' => [
                     'required' => 'A matrícula é obrigatória',
                     'min_length' => 'A matrícula deve ter no mínimo 10 números',

@@ -1,5 +1,7 @@
 <?= $this->extend('_config/Layout/mainLayout'); ?>
-<?= $this->section('conteudo'); ?>
+<?= $this->section('conteudo');
+d($this->data['data']);
+?>
 
 <div class="xl:mx-[20px] m-4">
   <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Lista de Atividades Complementares</p>
@@ -51,7 +53,7 @@
                 </div>
               </td>
               <td class="px-6 py-4"><?= $e->curricular; ?></td>
-              <td class="px-6 py-4"><?= $e->aluno_id; ?></td>
+              <td class="px-6 py-4"><?= $e->nome_aluno; ?></td>
               <td class="px-6 py-4"><?= $e->ano_letivo.'/'.$e->periodo_letivo; ?></td>
               <td class="px-6 py-4"><?= $e->data_inicio; ?></td>
               <td class="px-6 py-4"><?= $e->data_conclusao; ?></td>

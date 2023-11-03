@@ -35,7 +35,7 @@ class AlunoController extends BaseController
 
     public function create()
     {
-        if (!$this->validate(AlunoValidate::getRulesValidation())) {
+        if (!$this->validate(AlunoValidate::getRulesValidation(null))) {
             return redirect()->back()->withInput();
         }
         $this->model->cadastrar($_POST);
@@ -52,7 +52,7 @@ class AlunoController extends BaseController
 
     public function update($id)
     {
-        if (!$this->validate(AlunoValidate::getRulesValidation())) {
+        if (!$this->validate(AlunoValidate::getRulesValidation($id))) {
             return redirect()->back()->withInput();
         }
         $this->model->atualizar($id, $_POST);
