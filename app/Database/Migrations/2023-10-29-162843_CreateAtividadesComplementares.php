@@ -22,7 +22,6 @@ class CreateAtividadesComplementares extends Migration
             'carga_horaria' => ['type' => 'INT', 'null' => false],
             'obs_complementares' => ['type' => 'TEXT', 'null' => true],
             'deferida' => ['type' => 'BOOLEAN', 'null' => true],
-            'curricular' => ['type' => 'BOOLEAN', 'null' => false],
             'razao_indeferimento' => ['type' => 'VARCHAR', 'constraint' => '200', 'null' => true],
             'incluido_em' => ['type' => 'TIMESTAMP', 'default' => new RawSql('CURRENT_TIMESTAMP'),
         ],

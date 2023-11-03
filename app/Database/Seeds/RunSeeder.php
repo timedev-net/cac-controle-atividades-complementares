@@ -8,7 +8,8 @@ class RunSeeder extends Seeder
 {
     public function run()
     {
-        $this->call('AddTpAtividades');
         $this->call('AddAlunos');
+        $this->call('AddTpAtividades');
+        $this->call('AddAtividadesComplementares');
     }
 }

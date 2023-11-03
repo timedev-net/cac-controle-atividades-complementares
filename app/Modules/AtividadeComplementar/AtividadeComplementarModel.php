@@ -17,10 +17,16 @@ class AtividadeComplementarModel extends Model
   {
     $filters = array_merge(['search' => '', 'page' => 1, 'perPage' => 10], $filters);
     $offset = ($filters['page'] - 1) * $filters['perPage'];
+    $s = strtolower($filters['search']);
     $this->builder->select('a.*, al.nome as nome_aluno, ta.nome as nome_tp_atividade');
     $this->builder->join('alunos al','al.id = a.aluno_id','left');
     $this->builder->join('tp_atividades ta','ta.id = a.tp_atividade_id','left');
-    $this->builder->like("a.nome_atividade", $filters['search'], 'both', null, true);
+    $this->builder->like("a.nome_atividade", $s, 'both', null, true);
+    $this->builder->orLike("al.nome", $s, 'both', null, true);
+    $this->builder->orWhere("a.ano_letivo", (int)$s);
+    if (str_contains($s, "análise")) $this->builder->orWhere("a.deferida is null");
+    if (str_contains($s, "deferida")) $this->builder->orWhere("a.deferida", "t");
+    if (str_contains($s, "indeferida")) $this->builder->orWhere("a.deferida", "f");
     $this->builder->limit($filters['perPage'], $offset);
     $this->builder->orderBy('a.nome_atividade', 'asc');
 
