@@ -1,12 +1,11 @@
 <?php echo $this->extend('_config/Layout/mainLayout'); ?>
 <?php echo $this->section('conteudo');
-$a = !empty($this->data) ? $this->data : null;
-?>
+$a = !empty($this->data) ? $this->data : null; ?>
 <div class="md:mx-[210px] m-4">
   <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Cadastro de Atividade Complementar</p>
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-    <form class="bg-white dark:bg-meuTema-800 p-8" method="post" action="<?= empty($a['data']) ? '/atividade-complementar/novo' : "/atividade-complementar/editar/$a->id" ?>">
+    <form class="bg-white dark:bg-meuTema-800 p-8" method="post" action="<?= empty($a['data']) ? '/atividade-complementar/novo' : "/atividade-complementar/editar/$a[id]" ?>">
       <div class="mb-6">
         <label for="aluno_id" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Aluno <span class="text-red-500">*</span></label>
         <select name="aluno_id" id="aluno_id" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500">
@@ -52,14 +51,14 @@ $a = !empty($this->data) ? $this->data : null;
         <span class="text-red-500"><?= validation_show_error('curricular'); ?></span>
       </div>
       <div class="mb-6">
-        <label for="periodo_letivo" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Período letivo <span class="text-red-500">*</span></label>
-        <input name="periodo_letivo" value="<?= empty($a['data']) ? '' : $a['data']->periodo_letivo ?>" type="text" id="periodo_letivo" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" required>
-        <span class="text-red-500"><?= validation_show_error('periodo_letivo'); ?></span>
-      </div>
-      <div class="mb-6">
         <label for="ano_letivo" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Ano letivo <span class="text-red-500">*</span></label>
         <input name="ano_letivo" value="<?= empty($a['data']) ? '' : $a['data']->ano_letivo ?>" type="number" min="1900" max="2099" step="1" id="ano_letivo" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" required>
         <span class="text-red-500"><?= validation_show_error('ano_letivo'); ?></span>
+      </div>
+      <div class="mb-6">
+        <label for="periodo_letivo" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Período letivo <span class="text-red-500">*</span></label>
+        <input name="periodo_letivo" value="<?= empty($a['data']) ? '' : $a['data']->periodo_letivo ?>" type="text" id="periodo_letivo" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" required>
+        <span class="text-red-500"><?= validation_show_error('periodo_letivo'); ?></span>
       </div>
       <div class="mb-6">
         <label for="data_inicio" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Data de início da atividade <span class="text-red-500">*</span></label>

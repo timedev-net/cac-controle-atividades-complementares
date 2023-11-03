@@ -54,8 +54,14 @@ class AtividadeComplementarController extends BaseController
 
     public function showFormEdit($id): string
     {
-        $data = $this->model->getById($id);
-        $data['id'] = $id;
+        $alunos = new AlunoModel();
+        $tp_atividades = new TpAtividadeModel();
+        $data = [
+            'id' => $id,
+            'data' => $this->model->getById($id),
+            'alunos' => $alunos->getAllToSelectInput(),
+            'tp_atividades' => $tp_atividades->getAllToSelectInput()
+        ];
         return view('AtividadeComplementar/Views/form', $data);
     }
 

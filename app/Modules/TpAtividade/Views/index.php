@@ -4,7 +4,7 @@
   <div class="xl:mx-[210px] m-4">
     <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Tipos de Atividade</p>
     <div class="relative shadow-md sm:rounded-lg">
-      <div class="p-4 flex items-center justify-between pb-4 bg-meuBranco dark:bg-meuTema-800">
+      <div class="p-3 md:p-4 flex flex-wrap gap-3 items-center justify-between pb-4 bg-meuBranco dark:bg-meuTema-800">
         <div>
           <a href="/tp-atividade/novo" id="button1" class="inline-flex items-center text-meuCinza-400 bg-meuBranco border border-meuCinza-300 focus:outline-none hover:bg-meuTema-100 focus:ring-4 focus:ring-meuCinza-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-meuTema-700 dark:text-meuCinza-400 dark:border-meuCinza-600 dark:hover:bg-meuTema-600 dark:hover:border-meuCinza-600 dark:focus:ring-meuCinza-700" type="button">
             Cadastrar Novo Tipo
@@ -79,7 +79,7 @@
           </tbody>
         </table>
       </div>
-      <nav class="flex items-center justify-between p-4 pt-4 bg-meuBranco dark:bg-meuTema-900" aria-label="Table navigation">
+      <nav class="flex flex-wrap gap-2 items-center justify-between p-4 pt-4 bg-meuBranco dark:bg-meuTema-900" aria-label="Table navigation">
         <span class="text-sm font-normal text-meuCinza-400 dark:text-meuCinza-400">Exibindo a página <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $page; ?></span> de <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $totalPages; ?></span></span>
         <span class="text-sm font-normal text-meuCinza-400 dark:text-meuCinza-400">Total de registros <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $totalItens; ?></span></span>
         <ul class="inline-flex -space-x-px text-sm h-8">

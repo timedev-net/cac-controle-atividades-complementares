@@ -17,8 +17,9 @@ class AtividadeComplementarModel extends Model
   {
     $filters = array_merge(['search' => '', 'page' => 1, 'perPage' => 10], $filters);
     $offset = ($filters['page'] - 1) * $filters['perPage'];
-    $this->builder->select('a.*, al.nome as nome_aluno');
+    $this->builder->select('a.*, al.nome as nome_aluno, ta.nome as nome_tp_atividade');
     $this->builder->join('alunos al','al.id = a.aluno_id','left');
+    $this->builder->join('tp_atividades ta','ta.id = a.tp_atividade_id','left');
     $this->builder->like("a.nome_atividade", $filters['search'], 'both', null, true);
     $this->builder->limit($filters['perPage'], $offset);
     $this->builder->orderBy('a.nome_atividade', 'asc');
@@ -39,7 +40,7 @@ class AtividadeComplementarModel extends Model
   public function getById($id)
   {
     $this->builder->where('id', $id);
-    $data = $this->builder->get()->getResult();
+    $data = $this->builder->get()->getRow();
     return $data;
   }
 
