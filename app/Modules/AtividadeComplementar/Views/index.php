@@ -1,7 +1,7 @@
 <?= $this->extend('_config/Layout/mainLayout'); ?>
 <?= $this->section('conteudo'); ?>
 
-<div class="xl:mx-[20px] m-4">
+<div class="xl:mx-[20px] m-4 overflow-hidden">
   <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Lista de Atividades Complementares</p>
   <div class="flex items-baseline gap-x-2 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">
         <span class="mr-1">Legenda:</span>
@@ -25,8 +25,7 @@
         <input name="search" value="<?= empty($_GET['search']) ? '' : $_GET['search'] ?>" type="text" class="block p-2 pl-10 text-sm text-meuCinza-900 border border-meuCinza-300 rounded-lg w-80 bg-meuTema-50 focus:ring-meuTema-500 focus:border-meuTema-500 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-meuBranco dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" placeholder="Pesquisar">
       </form>
     </div>
-    <div class="overflow-x-auto ">
-
+    <div class="overflow-x-auto">
       <table class="w-full text-sm text-left text-meuCinza-400 dark:text-meuCinza-400">
         <thead class="text-xs text-meuCinza-600 uppercase bg-meuTema-50 dark:bg-meuTema-700 dark:text-meuCinza-200">
           <tr>
@@ -50,12 +49,12 @@
           <?php foreach ($this->data['data'] as $i => $e) : ?>
             <tr class="bg-meuBranco text-meuCinza-600 border-b dark:bg-meuTema-800 dark:border-meuCinza-700 hover:bg-meuTema-50 dark:hover:bg-meuTema-600">
               <td class="w-4 px-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->id; ?></td>
-              <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->nome_aluno; ?></td>
+              <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro whitespace-pre"><?= $e->nome_aluno; ?></td>
               <td scope="row" class="flex items-center px-6 py-4 text-meuCinza-900 meuBrancospace-nowrap dark:text-meuBranco">
                 <?php if ($e->curricular == 't') echo '<div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>' ?>
                 <?php if ($e->curricular == 'f') echo '<div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>' ?>
                 <div class="pl-3">
-                  <div class="text-base font-semibold"><?= $e->nome_atividade; ?></div>
+                  <div class="text-base font-semibold whitespace-pre"><?= $e->nome_atividade; ?></div>
                   <div class="font-normal text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->nome_tp_atividade; ?></div>
                 </div>
               </td>
@@ -74,9 +73,9 @@
               <td class="px-6 py-4"><?= $e->razao_indeferimento; ?></td> -->
               <td class="px-6 py-4">
                 <div class="flex items-center">
-                  <?php if ($e->deferida == 't') echo '<div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Deferida' ?>
-                  <?php if ($e->deferida == 'f') echo '<div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Indeferida' ?>
-                  <?php if ($e->deferida == null) echo '<span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Em análise</span>' ?>
+                  <?php if ($e->deferida == 't') echo '<span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 whitespace-pre">Deferida</span>' ?>
+                  <?php if ($e->deferida == 'f') echo '<span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 whitespace-pre">Indeferida</span>' ?>
+                  <?php if ($e->deferida == null) echo '<span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300 whitespace-pre">Em análise</span>' ?>
                 </div>
               </td>
               <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= date_format(date_create($e->incluido_em), 'd/m/Y'); ?></td>
