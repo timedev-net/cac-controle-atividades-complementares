@@ -32,14 +32,10 @@
             <th scope="col" class="px-6 py-3">#</th>
             <th scope="col" class="px-6 py-3">Aluno</th>
             <th scope="col" class="px-6 py-3">Nome da Atividade</th>
-            <!-- <th scope="col" class="px-6 py-3">Tipo</th> -->
-            <!-- <th scope="col" class="px-6 py-3">Curricular</th> -->
             <th scope="col" class="px-6 py-3">Período Letivo</th>
             <th scope="col" class="px-6 py-3">Início</th>
             <th scope="col" class="px-6 py-3">Conclusão</th>
             <th scope="col" class="px-6 py-3">Horas</th>
-            <!-- <th scope="col" class="px-6 py-3">Observação</th>
-            <th scope="col" class="px-6 py-3">Indeferimento</th> -->
             <th scope="col" class="px-6 py-3">Status</th>
             <th scope="col" class="px-6 py-3">Cadastrado em</th>
             <th scope="col" class="px-6 py-3">Ações</th>
