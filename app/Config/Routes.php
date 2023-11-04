@@ -58,6 +58,9 @@ $routes->get('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::
 $routes->post('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::update/$1');
 $routes->get('/tp-atividade/deletar/(:any)', 'TpAtividade\TpAtividadeController::delete/$1');
 
+// RELATÓRIOS
+$routes->get('/relatorios/atividades', 'Relatorio\RelatorioController::atividadesList');
+$routes->get('/relatorios/alunos', 'Relatorio\RelatorioController::alunosList');
 
 
 /*

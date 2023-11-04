@@ -2,19 +2,20 @@
 <?= $this->section('conteudo'); ?>
 
 <div class="xl:mx-[20px] m-4 overflow-hidden">
-  <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Lista de Atividades Complementares</p>
+  <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Relatório de Atividades <?php
+  if (!empty($_GET['search']) && trim(strtolower($_GET['search']) == 'deferida')) echo 'Deferidas';
+  else if (!empty($_GET['search']) && str_contains(strtolower($_GET['search']), 'indeferida')) echo 'Indeferidas';
+  else if (!empty($_GET['search']) && str_contains(strtolower($_GET['search']), 'analise')) echo 'para Analise';
+  else echo '- Geral';
+  ?></p>
   <div class="flex items-baseline gap-x-2 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">
     <span class="mr-1">Legenda:</span>
     <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>atividades curriculares
     <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>atividades não curriculares
   </div>
   <div class="relative shadow-md sm:rounded-lg">
-    <div class="p-3 md:p-4 flex flex-wrap gap-3 items-center justify-between pb-4 bg-meuBranco dark:bg-meuTema-800">
-      <div>
-        <a href="/atividade-complementar/novo" id="button1" class="inline-flex items-center text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro bg-meuBranco border border-meuCinza-300 focus:outline-none hover:bg-meuTema-100 focus:ring-4 focus:ring-meuCinza-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:hover:bg-meuTema-600 dark:hover:border-meuCinza-600 dark:focus:ring-meuCinza-700" type="button">
-          Cadastrar Nova Atividade
-        </a>
-      </div>
+    <div class="p-3 md:p-4 flex flex-wrap gap-3 items-center justify-center pb-4 bg-meuBranco dark:bg-meuTema-800">
+
       <label for="table-search" class="sr-only">Pesquisa</label>
       <form action="?search=" class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -29,31 +30,34 @@
       <table class="w-full text-sm text-left text-meuCinza-400 dark:text-meuCinza-400">
         <thead class="text-xs text-meuCinza-600 uppercase bg-meuTema-50 dark:bg-meuTema-700 dark:text-meuCinza-200">
           <tr>
-            <th scope="col" class="px-6 py-3">#</th>
+            <th scope="col" class="px-6 py-3"></th>
             <th scope="col" class="px-6 py-3">Aluno</th>
-            <th scope="col" class="px-6 py-3">Nome da Atividade</th>
+            <th scope="col" class="px-6 py-3">Descrição da Atividade</th>
+            <th scope="col" class="px-6 py-3">Tipo</th>
             <th scope="col" class="px-6 py-3">Período Letivo</th>
             <th scope="col" class="px-6 py-3">Início</th>
             <th scope="col" class="px-6 py-3">Conclusão</th>
             <th scope="col" class="px-6 py-3">Horas</th>
             <th scope="col" class="px-6 py-3">Status</th>
             <th scope="col" class="px-6 py-3">Cadastrado em</th>
-            <th scope="col" class="px-6 py-3">Ações</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($this->data['data'] as $i => $e) : ?>
             <tr class="bg-meuBranco text-meuCinza-600 border-b dark:bg-meuTema-800 dark:border-meuCinza-700 hover:bg-meuTema-50 dark:hover:bg-meuTema-600">
-              <td class="w-4 px-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->id; ?></td>
+              <td class="w-4 px-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">
+              <?php if ($e->curricular == 't') echo '<div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>' ?>
+                <?php if ($e->curricular == 'f') echo '<div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>' ?>
+              </td>
               <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro whitespace-pre"><?= $e->nome_aluno; ?></td>
               <td scope="row" class="flex items-center px-6 py-4 text-meuCinza-900 meuBrancospace-nowrap dark:text-meuBranco">
-                <?php if ($e->curricular == 't') echo '<div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>' ?>
-                <?php if ($e->curricular == 'f') echo '<div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>' ?>
+
                 <div class="pl-3">
                   <div class="text-base font-semibold whitespace-pre"><?= $e->nome_atividade; ?></div>
-                  <div class="font-normal text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->nome_tp_atividade; ?></div>
+
                 </div>
               </td>
+              <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro whitespace-pre"><?= $e->nome_tp_atividade; ?></td>
               <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->ano_letivo . '/' . $e->periodo_letivo; ?></td>
               <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= date_format(date_create($e->data_inicio), 'd/m/Y'); ?></td>
               <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= date_format(date_create($e->data_conclusao), 'd/m/Y'); ?></td>
@@ -73,36 +77,6 @@
                 </div>
               </td>
               <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= date_format(date_create($e->incluido_em), 'd/m/Y'); ?></td>
-              <td class="px-6 py-4">
-                <div class="flex gap-x-4">
-                  <a href="/atividade-complementar/analisar/<?= $e->id; ?>" data-tooltip-target="analisar" class="font-medium text-meuTema-600 dark:text-meuTema-500 hover:underline">
-                    <svg class="w-[18px] h-[18px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                      <path d="M7.363 9.863a2 2 0 1 0 1.412 3.415A2 2 0 0 0 7.36 9.866l.003-.003ZM5 5V.13a2.98 2.98 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                      <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Zm-1.722 16.844a1 1 0 0 1-1.414 0L9.383 15.3a3.96 3.96 0 0 1-2.02.566 4 4 0 1 1 4-4 3.96 3.96 0 0 1-.566 2.02l1.547 1.547a1 1 0 0 1 0 1.411Z" />
-                    </svg>
-                  </a>
-                  <div id="analisar" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-meuBranco transition-opacity duration-300 bg-meuTema-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-meuTema-700">
-                    Analisar
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                  </div>
-                  <a href="/atividade-complementar/editar/<?= $e->id; ?>" data-tooltip-target="editar" class="font-medium text-meuTema-600 dark:text-meuTema-500 hover:underline">
-                    <svg class="w-[18px] h-[18px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                      <path d="M12.687 14.408a3.01 3.01 0 0 1-1.533.821l-3.566.713a3 3 0 0 1-3.53-3.53l.713-3.566a3.01 3.01 0 0 1 .821-1.533L10.905 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V11.1l-3.313 3.308Zm5.53-9.065.546-.546a2.518 2.518 0 0 0 0-3.56 2.576 2.576 0 0 0-3.559 0l-.547.547 3.56 3.56Z" />
-                      <path d="M13.243 3.2 7.359 9.081a.5.5 0 0 0-.136.256L6.51 12.9a.5.5 0 0 0 .59.59l3.566-.713a.5.5 0 0 0 .255-.136L16.8 6.757 13.243 3.2Z" />
-                    </svg>
-                  </a>
-                  <div id="editar" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-meuBranco transition-opacity duration-300 bg-meuTema-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-meuTema-700">
-                    Editar
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                  </div>
-                  <a onclick="excluir(<?= $e->id; ?>)" data-tooltip-target="excluir" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="font-medium text-meuTema-600 dark:text-meuTema-500 hover:underline"><svg class="w-[18px] h-[18px] text-meuCinza-800 dark:text-meuBranco" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z" />
-                    </svg></a>
-                  <div id="excluir" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-meuBranco transition-opacity duration-300 bg-meuTema-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-meuTema-700">
-                    Excluir
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                  </div>
-              </td>
             </tr>
           <?php endforeach; ?>
         </tbody>

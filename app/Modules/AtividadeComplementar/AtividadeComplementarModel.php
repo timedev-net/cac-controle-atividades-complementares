@@ -19,14 +19,12 @@ class AtividadeComplementarModel extends Model
     $offset = ($filters['page'] - 1) * $filters['perPage'];
     $s = strtolower($filters['search']);
     $this->builder->select('a.*, al.nome as nome_aluno, ta.nome as nome_tp_atividade, ta.curricular');
-    $this->builder->join('alunos al','al.id = a.aluno_id','left');
-    $this->builder->join('tp_atividades ta','ta.id = a.tp_atividade_id','left');
     $this->applyFilters($this->builder, $s);
     $this->builder->limit($filters['perPage'], $offset);
     $this->builder->orderBy('a.incluido_em', 'desc');
     $data = $this->builder->get()->getResult();
+    // $data = $this->builder->getCompiledSelect(); dd($data);
     $this->builder->select('count(a.*)');
-    $this->builder->join('alunos al','al.id = a.aluno_id','left');
     $this->applyFilters($this->builder, $s);
     $total = $this->builder->get()->getResult();
     $totalPages = ceil($total[0]->count / $filters['perPage']);
@@ -39,13 +37,21 @@ class AtividadeComplementarModel extends Model
     ];
   }
 
-  private function applyFilters($builder, $s) {
-    $builder->like("a.nome_atividade", $s, 'both', true, true);
-    $builder->orLike("al.nome", $s, 'both', true, true);
-    $builder->orWhere("a.ano_letivo", (int)$s);
-    if (str_contains($s, "análise") || str_contains($s, "analise")) $builder->orWhere("a.deferida is null");
-    if ($s == "deferida") $builder->orWhere("a.deferida", "t");
-    if (str_contains($s, "indeferida")) $builder->orWhere("a.deferida", "f");
+  private function applyFilters($builder, $search) {
+
+    $builder->join('alunos al','al.id = a.aluno_id','left');
+    $builder->join('tp_atividades ta','ta.id = a.tp_atividade_id','left');
+    foreach(explode(',',$search) as $s) {
+      $s = trim($s);
+      $builder->orLike("a.nome_atividade", $s, 'both', true, true);
+      $builder->orLike("al.nome", $s, 'both', true, true);
+      $builder->orLike("ta.nome", $s, 'both', true, true);
+      $builder->orWhere("a.ano_letivo", (int)$s);
+      if (str_contains($s, "análise") || str_contains($s, "analise")) $builder->orWhere("a.deferida is null");
+      if ($s == "deferida") $builder->orWhere("a.deferida", "t");
+      if (str_contains($s, "indeferida")) $builder->orWhere("a.deferida", "f");
+    }
+
   }
 
   public function getById($id)
