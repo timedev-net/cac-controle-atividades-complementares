@@ -6,7 +6,7 @@
     <div class="relative shadow-md sm:rounded-lg">
       <div class="p-3 md:p-4 flex flex-wrap gap-3 items-center justify-between pb-4 bg-meuBranco dark:bg-meuTema-800">
         <div>
-          <a href="/tp-atividade/novo" id="button1" class="inline-flex items-center text-meuCinza-400 bg-meuBranco border border-meuCinza-300 focus:outline-none hover:bg-meuTema-100 focus:ring-4 focus:ring-meuCinza-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-meuTema-700 dark:text-meuCinza-400 dark:border-meuCinza-600 dark:hover:bg-meuTema-600 dark:hover:border-meuCinza-600 dark:focus:ring-meuCinza-700" type="button">
+          <a href="/tp-atividade/novo" id="button1" class="inline-flex items-center bg-meuBranco text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro border border-meuCinza-300 focus:outline-none hover:bg-meuTema-100 focus:ring-4 focus:ring-meuCinza-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:hover:bg-meuTema-600 dark:hover:border-meuCinza-600 dark:focus:ring-meuCinza-700" type="button">
             Cadastrar Novo Tipo
           </a>
         </div>
@@ -24,21 +24,11 @@
         <table class="w-full text-sm text-left text-meuCinza-400 dark:text-meuCinza-400">
           <thead class="text-xs text-meuCinza-700 uppercase bg-meuTema-50 dark:bg-meuTema-700 dark:text-meuCinza-400">
             <tr>
-              <th scope="col" class="px-6 py-3">
-                #
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Tipo da Atividade
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Curricular
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Limite de Horas
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Ações
-              </th>
+              <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">#</th>
+              <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Tipo da Atividade</th>
+              <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Curricular</th>
+              <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Limite de Horas</th>
+              <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -83,13 +73,13 @@
         <span class="text-sm font-normal text-meuCinza-400 dark:text-meuCinza-400">Exibindo a página <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $page; ?></span> de <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $totalPages; ?></span></span>
         <span class="text-sm font-normal text-meuCinza-400 dark:text-meuCinza-400">Total de registros <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $totalItens; ?></span></span>
         <ul class="inline-flex -space-x-px text-sm h-8">
-          <li>
-            <a href="?page=<?= $page > 1 ? $page - 1 : 1; ?>" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-meuCinza-400 bg-meuBranco border border-meuCinza-300 rounded-l-lg hover:bg-meuTema-100 hover:text-meuCinza-700 dark:bg-meuTema-800 dark:border-meuCinza-700 dark:text-meuCinza-400 dark:hover:bg-meuTema-700 dark:hover:text-meuBranco">Anterior</a>
-          </li>
-          <li>
-            <a href="?page=<?= $page + 1; ?>" class="flex items-center justify-center px-3 h-8 leading-tight text-meuCinza-400 bg-meuBranco border border-meuCinza-300 rounded-r-lg hover:bg-meuTema-100 hover:text-meuCinza-700 dark:bg-meuTema-800 dark:border-meuCinza-700 dark:text-meuCinza-400 dark:hover:bg-meuTema-700 dark:hover:text-meuBranco">Proxima</a>
-          </li>
-        </ul>
+        <li>
+          <a <?php if($page > 1) echo 'href="?page='.($page-1).'"' ?> class="<?php if($page <= 1) echo 'opacity-70 cursor-not-allowed'; else echo 'dark:hover:bg-meuTema-700 dark:hover:text-meuBranco hover:bg-meuTema-100 hover:text-meuCinza-700' ?> flex items-center justify-center px-3 h-8 ml-0 leading-tight text-meuCinza-400 bg-meuBranco border border-meuCinza-300 rounded-l-lg dark:bg-meuTema-800 dark:border-meuCinza-700 dark:text-meuCinza-400">Anterior</a>
+        </li>
+        <li>
+          <a <?php if($page < $totalPages) echo 'href="?page='.($page+1).'"' ?> class="<?php if($page >= $totalPages) echo 'opacity-70 cursor-not-allowed'; else echo 'dark:hover:bg-meuTema-700 dark:hover:text-meuBranco hover:bg-meuTema-100 hover:text-meuCinza-700' ?> flex items-center justify-center px-3 h-8 leading-tight text-meuCinza-400 bg-meuBranco border border-meuCinza-300 rounded-r-lg dark:bg-meuTema-800 dark:border-meuCinza-700 dark:text-meuCinza-400 ">Proxima</a>
+        </li>
+      </ul>
       </nav>
     </div>
   </div>

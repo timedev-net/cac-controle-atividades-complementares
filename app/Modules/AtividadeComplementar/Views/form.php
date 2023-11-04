@@ -36,21 +36,6 @@ $a = !empty($this->data) ? $this->data : null; ?>
         <span class="text-red-500"><?= validation_show_error('tp_atividade_id'); ?></span>
       </div>
       <div class="mb-6">
-        <label class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">É curricular? <span class="text-red-500">*</span></label>
-        <fieldset class="flex gap-5 bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500">
-          <legend class="sr-only">É curricular?</legend>
-          <div class="flex items-center">
-            <input <?php if (!empty($a['data']) && $a['data']->curricular == 't') echo 'checked' ?> id="sim-curric" type="radio" name="curricular" value="t" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
-            <label for="sim-curric" class="block ml-2 text-sm font-medium text-meuCinza-900 dark:text-meuCinza-300">Sim</label>
-          </div>
-          <div class="flex items-center">
-            <input <?php if (!empty($a['data']) && $a['data']->curricular == 'f') echo 'checked' ?> id="nao-curric" type="radio" name="curricular" value="f" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
-            <label for="nao-curric" class="block ml-2 text-sm font-medium text-meuCinza-900 dark:text-meuCinza-300">Não</label>
-          </div>
-        </fieldset>
-        <span class="text-red-500"><?= validation_show_error('curricular'); ?></span>
-      </div>
-      <div class="mb-6">
         <label for="ano_letivo" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Ano letivo <span class="text-red-500">*</span></label>
         <input name="ano_letivo" value="<?= empty($a['data']) ? '' : $a['data']->ano_letivo ?>" type="number" min="1900" max="2099" step="1" id="ano_letivo" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" required>
         <span class="text-red-500"><?= validation_show_error('ano_letivo'); ?></span>
@@ -95,7 +80,7 @@ $a = !empty($this->data) ? $this->data : null; ?>
     </form>
   </div>
 </div>
-
+<?= $this->include('_config/alerts/messageToast'); ?>
 
 <script>
   $(document).ready(() => {

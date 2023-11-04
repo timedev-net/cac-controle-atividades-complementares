@@ -86,4 +86,31 @@ class AtividadeComplementarController extends BaseController
             return redirect()->to('/atividades-complementares');
         }
     }
+
+    public function analisarAtividadeForm($id) {
+        $alunos = new AlunoModel();
+        $tp_atividades = new TpAtividadeModel();
+        $atv_comp = $this->model->getById($id);
+        $data = [
+            'id' => $id,
+            'data' => $atv_comp,
+            'aluno' => $alunos->getById($atv_comp->aluno_id),
+            'tp_atividade' => $tp_atividades->getById($atv_comp->tp_atividade_id)
+        ];
+        if (!empty($this->session->getFlashdata())) {
+            $data['message'] = $this->session->getFlashdata();
+        }
+        return view('AtividadeComplementar/Views/analiseForm', $data);
+    }
+    public function analisarAtividade($id) {
+
+        if (!empty($_POST['deferida']) && $_POST['deferida'] == 'f' && !$this->validate(AtividadeComplementarValidate::getRulesAnaliseValidation())) {
+            $this->session->setFlashdata('error', 'Preencha os campos corretamente!');
+            return redirect()->back()->withInput();
+        }
+        if ($_POST['deferida'] == '') $_POST['deferida'] = null;
+        $this->model->atualizar($id, $_POST);
+        $this->session->setFlashdata('success', 'Atividade analisada com sucesso!');
+        return redirect()->to('/atividades-complementares');
+    }
 }

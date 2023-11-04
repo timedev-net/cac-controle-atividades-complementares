@@ -47,7 +47,8 @@ $routes->post('/atividade-complementar/novo', 'AtividadeComplementar\AtividadeCo
 $routes->get('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::showFormEdit/$1');
 $routes->post('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::update/$1');
 $routes->get('/atividade-complementar/deletar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::delete/$1');
-// $routes->get('/atividades-complementares/analisar', 'AtividadeComplementar\AtividadeComplementarController::index');
+$routes->get('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividadeForm/$1');
+$routes->post('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividade/$1');
 
 // TIPOS DE ATIVIDADES
 $routes->get('/tp-atividades', 'TpAtividade\TpAtividadeController::index');

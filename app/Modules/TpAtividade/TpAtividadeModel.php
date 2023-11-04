@@ -43,7 +43,7 @@ class TpAtividadeModel extends Model
     public function getById($id)
     {
         $this->builder->where('id', $id);
-        $data = $this->builder->get()->getResult();
+        $data = $this->builder->get()->getRow();
         return $data;
     }
 

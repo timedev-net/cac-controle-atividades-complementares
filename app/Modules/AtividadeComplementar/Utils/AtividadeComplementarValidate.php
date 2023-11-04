@@ -4,8 +4,7 @@ namespace App\Modules\AtividadeComplementar\Utils;
 
 class AtividadeComplementarValidate {
     public static function getRulesValidation() {
-
-        $regras_validacao = [
+        return [
             'nome_atividade' => [
                 'rules' => 'required|min_length[3]|max_length[100]',
                 'errors' => [
@@ -15,10 +14,6 @@ class AtividadeComplementarValidate {
                 ]
             ],
             'aluno_id' => [
-                'rules' => 'required',
-                'errors' => ['required' => 'O campo é obrigatório']
-            ],
-            'curricular' => [
                 'rules' => 'required',
                 'errors' => ['required' => 'O campo é obrigatório']
             ],
@@ -46,9 +41,14 @@ class AtividadeComplementarValidate {
                 'rules' => 'required',
                 'errors' => ['required' => 'O campo é obrigatório']
             ],
-
         ];
-
-        return $regras_validacao;
+    }
+    public static function getRulesAnaliseValidation() {
+        return [
+            'razao_indeferimento' => [
+                'rules' => 'required',
+                'errors' => ['required' => 'O campo é obrigatório']
+            ],
+        ];
     }
 }

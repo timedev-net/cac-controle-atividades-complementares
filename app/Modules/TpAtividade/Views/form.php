@@ -30,10 +30,5 @@ $a = !empty($this->data) ? $this->data[0] : null;
     </form>
   </div>
 </div>
-<?php echo $this->endSection(); ?>
-
-<?php echo $this->section('scripts'); ?>
-<script>
-
-</script>
+<?= $this->include('_config/alerts/messageToast'); ?>
 <?php echo $this->endSection(); ?>

@@ -18,7 +18,7 @@ class AtividadeComplementarModel extends Model
     $filters = array_merge(['search' => '', 'page' => 1, 'perPage' => 10], $filters);
     $offset = ($filters['page'] - 1) * $filters['perPage'];
     $s = strtolower($filters['search']);
-    $this->builder->select('a.*, al.nome as nome_aluno, ta.nome as nome_tp_atividade');
+    $this->builder->select('a.*, al.nome as nome_aluno, ta.nome as nome_tp_atividade, ta.curricular');
     $this->builder->join('alunos al','al.id = a.aluno_id','left');
     $this->builder->join('tp_atividades ta','ta.id = a.tp_atividade_id','left');
     $this->builder->like("a.nome_atividade", $s, 'both', null, true);
@@ -28,7 +28,7 @@ class AtividadeComplementarModel extends Model
     if (str_contains($s, "deferida")) $this->builder->orWhere("a.deferida", "t");
     if (str_contains($s, "indeferida")) $this->builder->orWhere("a.deferida", "f");
     $this->builder->limit($filters['perPage'], $offset);
-    $this->builder->orderBy('a.nome_atividade', 'asc');
+    $this->builder->orderBy('a.incluido_em', 'desc');
 
     $data = $this->builder->get()->getResult();
     $total = $this->db->query('select count(a.*) from atividades_complementares a')->getResult();
@@ -56,6 +56,7 @@ class AtividadeComplementarModel extends Model
   }
   public function atualizar($id, $data)
   {
+    // dd($id, $data);
     $this->builder->update($data, ['id' => $id]);
   }
 
