@@ -1,9 +1,55 @@
-## CAC - Calculo das Atividades Complementares
-Sistema de Calculo das Atividades Complementares
-- Desenvolvido com CodeIgniter 4 :+1:
+# CAC - Cálculo de Atividades Complementares
+
+## Tecnologias usadas no projeto:
+
+### Linguagens
+- PHP 8.2.12
+- JavaScript ES-2021
+- Plpgsql
+### Framework
+- CodeIgniter 4
+### Libs JavaScript e CSS
+- JQuery 3.7.1
+- Flowbite 2.0.0
+- Tailwind CSS 3.0
+- Select2 4.1.0
+### Infraestrutura
+- PostgreSQL 16.0
+- Docker 24.0.4
+- Nginx
+- Php-FPM
+### Programas auxiliares
+- VsCode
+- DBeaver
 
 ### Home Page do Sistema
 <img src="/public/assets/homePage.png" alt="Home Page">
+
+
+### Principais Funcionalidades
+- Cadastra alunos e atividades complementares
+- Analisa as solicitações de atividades complementares
+- Exibe relatórios de alunos e atividades complementares
+
+### Requerimentos para execução do projeto
+
+Apenas ter o Docker instalado, todo o ambiente é configurado pelos arquivos:
+- `Dockerfile`
+- `docker-compose.yml`
+Configurações específicas estão no diretório `./docker`
+
+### Comandos para executar o projeto com o Docker
+
+1. `docker volume create db-atvd-complement` cria o volume para o banco de dados
+2. `docker volume ls` verifica o volume criado
+3. `docker compose up -d` constroi a o ambiente e sobe a aplicação com o banco de dados
+4. `docker exec -it app_atvd_complement /bin/bash` entra no terminal do container para executar as migrations e seeders
+5. `php spark migrate` executa as migrações de dentro do container
+6. `php spark db:seed RunSeeder` semeia o banco de dados
+### Outros comandos úteis
+- `php spark migrate:status` exibe o status das migrações
+- `php spark migrate:rollback` desfaz as migrações
+- `php spark migrate:refresh` desfaz e executa novamente as migrações
 
 ## O sistema apresenta tema claro e escuro
 
@@ -13,57 +59,26 @@ Sistema de Calculo das Atividades Complementares
 ### Dark
 <img src="/public/assets/temaDark.png" alt="temaDark">
 
-### Funcionalidades do sistema
-- Cadastra alunos e atividades complementares
-- Analisa as solicitações de atividades complementares
-- Exibe relatórios de alunos e atividades complementares
-
-### Requerimentos para execução do projeto
-
-Apenas ter o Docker instalado,
-todo o ambiente é configurado pelos arquivos:
-- `Dockerfile`
-- `docker-compose.yml`
-- todos os arquivos do diretório e subdiretórios de `./docker`
-
-### Comandos para executar com docker compose
-
-- `docker volume create db-atvd-complement`
-cria o volume para o banco de dados
-- `docker volume ls`
-lista os volumes criados
-- `docker compose up -d`
-constroi a o ambiente e sobe a aplicação com o banco de dados
-- `docker exec -it app_atvd_complement /bin/bash`
-abre o terminal do container
-- `php spark migrate`
-executa as migrações
-- `php spark migrate:rollback`
-desfaz as migrações
-- `php spark db:seed RunSeeder`
-semeia o banco de dados
-
-
 ### Coisas a fazer:
 
 1ª Etapa
- [x] adicionar validação no formulário
- [X] exibir mensagens de feedback de cadastro, atualização e exclusão
- [X] personalização do sistema com temas
- [X] fazer o tratamento dos erros
- [X] mudar logo e favicon do sistema
+- [x] adicionar validação no formulário
+- [x] exibir mensagens de feedback de cadastro, atualização e exclusão
+- [x] personalização do sistema com temas
+- [x] fazer o tratamento dos erros
+- [x] mudar logo e favicon do sistema
 
 2ª Etapa
- [X] fazer o CRUD de tipos de atividade
- [X] Criar tela para inserção das atividades, novo botão na linha da lista de alunos
- [X] Criar tela para analisar as solicitações, exibindo apenas as solicitações pendentes
+- [x] fazer o CRUD de tipos de atividade
+- [x] Criar tela para inserção das atividades, novo botão na linha da lista de alunos
+- [x] Criar tela para analisar as solicitações
 
 3ª Etapa
- [X] Criar uma tela para todos os relatórios de atividades completamentes
- [/] Criar uma tela para todos os relatórios de alunos
+- [x] Criar uma tela para os relatórios de atividades completamentes
+- [x] Criar uma tela para os relatórios de alunos
+- [x] Criar trigger para registro de logs de auditoria no banco
 
 4ª Etapa (atividades futuras)
- [ ] Fazer autenticação
- [ ] Documentar o uso do sistema
-
+- [ ] Fazer autenticação
+- [ ] Documentar o uso do sistema
 
