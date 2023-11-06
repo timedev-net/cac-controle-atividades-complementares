@@ -87,3 +87,9 @@ Configurações específicas estão no diretório `./docker`
 - [ ] Fazer autenticação
 - [ ] Documentar o uso do sistema
 
+## Tunelamento do WSL
+
+https://theboroer.github.io/localtunnel-www/
+https://github.com/localtunnel/localtunnel
+
+- `lt --port 80`
