@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class AlunoModel extends Model
 {
+    protected $DBGroup = 'instituicao';
     public function __construct()
     {
         parent::__construct();

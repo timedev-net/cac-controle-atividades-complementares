@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 
 class TpAtividadeModel extends Model
 {
+    protected $DBGroup = 'atividades';
     public function __construct()
     {
         parent::__construct();

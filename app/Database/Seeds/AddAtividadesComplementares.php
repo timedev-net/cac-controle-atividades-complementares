@@ -101,6 +101,6 @@ class AddAtividadesComplementares extends Seeder
             ],
         ];
 
-        $this->db->table('atividades_complementares')->insertBatch($data);
+        $this->db->table('atividades.atividades_complementares')->insertBatch($data);
     }
 }

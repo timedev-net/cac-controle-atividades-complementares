@@ -30,6 +30,6 @@ class AddAlunos extends Seeder
             ['nome' => 'Martin Antonio Osvaldo Porto', 'matricula_suap' => '687.390.098.870', 'email' => 'carlosfaelcosta@ficopola.net'],
         ];
 
-        $this->db->table('alunos')->insertBatch($data);
+        $this->db->table('instituicao.alunos')->insertBatch($data);
     }
 }

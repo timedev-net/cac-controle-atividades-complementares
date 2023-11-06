@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => '127.0.0.1',
+        'hostname' => 'localhost',
         'username' => 'postgres',
         'password' => 'senha',
-        'database' => 'talentos',
+        'database' => 'atvd_complement',
         'DBDriver' => 'Postgre',
         'DBPrefix' => '',
         'pConnect' => false,

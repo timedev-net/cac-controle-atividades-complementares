@@ -28,6 +28,6 @@ class AddTpAtividades extends Seeder
             ['nome' => 'Clube ou grupo de alunos', 'curricular' => false, 'limite_hora' => 10],
         ];
 
-        $this->db->table('tp_atividades')->insertBatch($data);
+        $this->db->table('atividades.tp_atividades')->insertBatch($data);
     }
 }
