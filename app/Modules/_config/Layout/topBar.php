@@ -59,10 +59,7 @@
                 <a href="/relatorios/atividades?search=analise" class="dark:text-meuTexto-menuEscuro block px-4 py-2 hover:bg-meuTema-100 dark:hover:bg-meuTema-600 dark:hover:text-meuBranco">Atividades para Análise</a>
               </li>
               <li>
-                <a href="/relatorios/alunos" class="dark:text-meuTexto-menuEscuro block px-4 py-2 hover:bg-meuTema-100 dark:hover:bg-meuTema-600 dark:hover:text-meuBranco">Alunos com pendência na carga horária</a>
-              </li>
-              <li>
-                <a href="/relatorios/alunos" class="dark:text-meuTexto-menuEscuro block px-4 py-2 hover:bg-meuTema-100 dark:hover:bg-meuTema-600 dark:hover:text-meuBranco">Alunos com carga horária concluída</a>
+                <a href="/relatorios/alunos" class="dark:text-meuTexto-menuEscuro block px-4 py-2 hover:bg-meuTema-100 dark:hover:bg-meuTema-600 dark:hover:text-meuBranco">Atividades dos Alunos</a>
               </li>
             </ul>
           </div>

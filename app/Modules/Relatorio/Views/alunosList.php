@@ -25,11 +25,15 @@
               <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Horas Cadastradas</th>
               <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Ativ. Cadastradas</th>
               <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Total Deferidas</th>
+              <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Tipos Curriculares Conclusos</th>
+              <th scope="col" class="px-6 py-3 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">Status</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($this->data['data'] as $i => $e) : ?>
-              <tr class="bg-meuBranco border-b dark:bg-meuTema-800 dark:border-meuCinza-700 hover:bg-meuTema-50 dark:hover:bg-meuTema-600">
+
+              <tr onclick="verDatalhes(<?= $e->id; ?>)" class="cursor-pointer bg-meuBranco border-b dark:bg-meuTema-800 dark:border-meuCinza-700 hover:bg-meuTema-50 dark:hover:bg-meuTema-600">
+                <span id="payload-<?= $e->id; ?>" hidden class="w-4 px-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= isset($e->atividades_concluidas)? json_encode($e->atividades_concluidas) :''; ?></span>
                 <td class="w-4 px-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->id; ?></td>
                 <td scope="row" class="flex items-center px-6 py-4 text-meuCinza-900 meuBrancospace-nowrap dark:text-meuBranco">
                   <div class="pl-3">
@@ -48,6 +52,16 @@
                 </td>
                 <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->qtd_atvs_total; ?></td>
                 <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->qtd_atvs_deferida; ?></td>
+                <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= isset($e->atividades_concluidas)? count($e->atividades_concluidas)."/3": "0/3"; ?></td>
+                <td class="px-6 py-4">
+                <div class="flex items-center">
+                  <?php if(isset($e->atividades_concluidas) && count($e->atividades_concluidas) >= 3) : ?>
+                    <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 whitespace-pre">Concluído</span>
+                  <?php else : ?>
+                    <span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300 whitespace-pre">Pendente</span>
+                  <?php endif; ?>
+                </div>
+              </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
@@ -80,6 +94,12 @@
 
     function confirmDelete() {
       window.open(`/aluno/deletar/${idAluno}`, "_self")
+    }
+
+    function verDatalhes(id) {
+      const payload = document.querySelector('#payload-' + id).innerText
+      // console.log(id, payload)
+      window.open(`/relatorios/aluno/${id}/detalhes?payload=${payload}`, "_self")
     }
   </script>
 

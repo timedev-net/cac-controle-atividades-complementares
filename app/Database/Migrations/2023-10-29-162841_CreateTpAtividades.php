@@ -23,9 +23,9 @@ class CreateTpAtividades extends Migration
             "CREATE TABLE atividades.tp_atividades (id SERIAL PRIMARY KEY,
                 nome VARCHAR(100) NOT NULL,
                 curricular BOOLEAN NOT NULL,
-                limite_hora INT NOT NULL,
-                pai_id INT NULL,
-                FOREIGN KEY (pai_id) REFERENCES atividades.tp_atividades(id)
+                limite_hora INT NOT NULL
+                -- pai_id INT NULL,
+                -- FOREIGN KEY (pai_id) REFERENCES atividades.tp_atividades(id)
             )"
         ));
 

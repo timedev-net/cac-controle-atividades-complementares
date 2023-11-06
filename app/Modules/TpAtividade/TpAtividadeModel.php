@@ -37,7 +37,7 @@ class TpAtividadeModel extends Model
     }
 
     public function getAllToSelectInput() {
-        return $this->builder->select('a.id, a.nome')->get()->getResult();
+        return $this->builder->select('a.id, a.nome, a.curricular')->get()->getResult();
     }
 
     public function getById($id)

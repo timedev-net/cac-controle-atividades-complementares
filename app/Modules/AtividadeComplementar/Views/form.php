@@ -29,7 +29,7 @@ $a = !empty($this->data) ? $this->data : null; ?>
           <option value="">Selecione</option>
           <?php foreach ($a['tp_atividades'] as $e) : ?>
             <option value="<?= $e->id ?>" <?php if (!empty($a['data']) && $e->id == $a['data']->tp_atividade_id) echo "selected"; ?>>
-              <?= $e->nome ?>
+              <?php if($e->curricular =='t') echo "curricular - $e->nome"; else echo "não curricular - $e->nome"; ?>
             </option>
           <?php endforeach; ?>
         </select>

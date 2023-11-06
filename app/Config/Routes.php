@@ -61,6 +61,7 @@ $routes->get('/tp-atividade/deletar/(:any)', 'TpAtividade\TpAtividadeController:
 // RELATÓRIOS
 $routes->get('/relatorios/atividades', 'Relatorio\RelatorioController::atividadesList');
 $routes->get('/relatorios/alunos', 'Relatorio\RelatorioController::alunosList');
+$routes->get('/relatorios/aluno/(:any)/detalhes', 'Relatorio\RelatorioController::alunoDetalhes/$1');
 
 
 /*

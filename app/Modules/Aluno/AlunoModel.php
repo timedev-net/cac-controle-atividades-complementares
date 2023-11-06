@@ -69,4 +69,5 @@ class AlunoModel extends Model
     public function deletar($id) {
         return $this->builder->delete(['id' => $id]);
     }
+
 }
