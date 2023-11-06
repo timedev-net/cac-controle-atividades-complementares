@@ -62,7 +62,6 @@ class CreateTriggerAuditoria extends Migration
 
     public function down()
     {
-
         $this->db->query(new RawSql("DROP TRIGGER t_auditoria_logs ON atividades.atividades_complementares;"));
         $this->db->query(new RawSql("DROP TRIGGER t_auditoria_logs ON atividades.tp_atividades;"));
         $this->db->query(new RawSql("DROP TRIGGER t_auditoria_logs ON instituicao.alunos;"));
