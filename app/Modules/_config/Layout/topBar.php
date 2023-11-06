@@ -65,7 +65,7 @@
           </div>
         </li>
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-meuCinza-900 rounded hover:bg-meuTema-100 md:hover:bg-transparent md:border-0 md:hover:text-meuTema-700 md:p-0 dark:text-meuBranco md:dark:hover:text-meuTema-500 dark:hover:bg-meuTema-700 dark:hover:text-meuBranco md:dark:hover:bg-transparent">Documentação</a>
+          <a href="https://github.com/timedev-net/cac-controle-atividades-complementares#readme" target="_blank" class="block py-2 pl-3 pr-4 text-meuCinza-900 rounded hover:bg-meuTema-100 md:hover:bg-transparent md:border-0 md:hover:text-meuTema-700 md:p-0 dark:text-meuBranco md:dark:hover:text-meuTema-500 dark:hover:bg-meuTema-700 dark:hover:text-meuBranco md:dark:hover:bg-transparent">Documentação</a>
         </li>
       </ul>
     </div>
