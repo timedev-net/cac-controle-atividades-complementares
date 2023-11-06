@@ -33,7 +33,9 @@
 
 ### Requerimentos para execução do projeto
 
-Apenas ter o Docker instalado, todo o ambiente é configurado pelos arquivos:
+Apenas ter o Docker instalado, todo o ambiente é executado dentro de um container Docker com base na imagem do `php:fpm-bullseye` que roda em cima do Debian 11.0.
+As configurações do ambiente estão dispostos nos seguintes arquivos:
+configurado pelos arquivos:
 - `Dockerfile`
 - `docker-compose.yml`
 Configurações específicas estão no diretório `./docker`
@@ -42,7 +44,7 @@ Configurações específicas estão no diretório `./docker`
 
 1. `docker volume create db-atvd-complement` cria o volume para o banco de dados
 2. `docker volume ls` verifica o volume criado
-3. `docker compose up -d` constroi a o ambiente e sobe a aplicação com o banco de dados
+3. `docker compose up -d` constroi todo o ambiente e sobe a aplicação com o banco de dados
 4. `docker exec -it app_atvd_complement /bin/bash` entra no terminal do container para executar as migrations e seeders
 5. `php spark migrate` executa as migrações de dentro do container
 6. `php spark db:seed RunSeeder` semeia o banco de dados
