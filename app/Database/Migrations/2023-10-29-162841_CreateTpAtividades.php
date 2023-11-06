@@ -24,8 +24,15 @@ class CreateTpAtividades extends Migration
                 nome VARCHAR(100) NOT NULL,
                 curricular BOOLEAN NOT NULL,
                 limite_hora INT NOT NULL,
-                created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);"
+                pai_id INT NULL,
+                FOREIGN KEY (pai_id) REFERENCES atividades.tp_atividades(id)
+            )"
         ));
+
+        // $this->db->query(new RawSql(
+        //     "ALTER TABLE atividades.tp_atividades
+        //     ADD FOREIGN KEY (pai_id) REFERENCES atividades.tp_atividades(id)"
+        // ));
     }
 
     public function down()
