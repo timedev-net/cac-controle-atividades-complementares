@@ -5,7 +5,7 @@
   <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Relatório de Atividades <?php
   if (!empty($_GET['search']) && trim(strtolower($_GET['search']) == 'deferida')) echo 'Deferidas';
   else if (!empty($_GET['search']) && str_contains(strtolower($_GET['search']), 'indeferida')) echo 'Indeferidas';
-  else if (!empty($_GET['search']) && str_contains(strtolower($_GET['search']), 'analise')) echo 'para Analise';
+  else if (!empty($_GET['search']) && str_contains(strtolower($_GET['search']), 'analise')) echo 'para Análise';
   else echo '- Geral';
   ?></p>
   <div class="flex items-baseline gap-x-2 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro">

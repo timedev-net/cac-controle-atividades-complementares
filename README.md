@@ -2,6 +2,17 @@
 Sistema de Calculo das Atividades Complementares
 - Desenvolvido com CodeIgniter 4 :+1:
 
+### Home Page do Sistema
+<img src="/public/assets/homePage.png" alt="Home Page">
+
+## O sistema apresenta tema claro e escuro
+
+### Light
+<img src="/public/assets/temaLight.png" alt="temaLight">
+
+### Dark
+<img src="/public/assets/temaDark.png" alt="temaDark">
+
 ### Funcionalidades do sistema
 - Cadastra alunos e atividades complementares
 - Analisa as solicitações de atividades complementares
@@ -44,12 +55,12 @@ semeia o banco de dados
 
 2ª Etapa
  [X] fazer o CRUD de tipos de atividade
- [ ] Criar tela para inserção das atividades, novo botão na linha da lista de alunos
- [ ] Criar tela para analisar as solicitações, exibindo apenas as solicitações pendentes
+ [X] Criar tela para inserção das atividades, novo botão na linha da lista de alunos
+ [X] Criar tela para analisar as solicitações, exibindo apenas as solicitações pendentes
 
 3ª Etapa
- [ ] Criar uma tela para todos os relatórios de atividades completamentes
- [ ] Criar uma tela para todos os relatórios de alunos
+ [X] Criar uma tela para todos os relatórios de atividades completamentes
+ [/] Criar uma tela para todos os relatórios de alunos
 
 4ª Etapa (atividades futuras)
  [ ] Fazer autenticação
