@@ -6,12 +6,11 @@ use CodeIgniter\Model;
 
 class TpAtividadeModel extends Model
 {
-    protected $DBGroup = 'atividades';
     public function __construct()
     {
         parent::__construct();
         $this->db = db_connect();
-        $this->builder = $this->db->table('tp_atividades a');
+        $this->builder = $this->db->table('atividades.tp_atividades a');
     }
 
     public function getAll($filters = []): array
@@ -25,7 +24,7 @@ class TpAtividadeModel extends Model
         $this->builder->orderBy('a.nome', 'asc');
 
         $data = $this->builder->get()->getResult();
-        $total = $this->db->query('select count(a.*) from tp_atividades a')->getResult();
+        $total = $this->db->query('select count(a.*) from atividades.tp_atividades a')->getResult();
         $totalPages = ceil($total[0]->count / $filters['perPage']);
 
         return [

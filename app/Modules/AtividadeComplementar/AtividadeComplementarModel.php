@@ -6,12 +6,11 @@ use CodeIgniter\Model;
 
 class AtividadeComplementarModel extends Model
 {
-  protected $DBGroup = 'atividades';
   public function __construct()
   {
     parent::__construct();
     $this->db = db_connect();
-    $this->builder = $this->db->table('atividades_complementares a');
+    $this->builder = $this->db->table('atividades.atividades_complementares a');
   }
 
   public function getAll($filters = []): array
@@ -22,7 +21,7 @@ class AtividadeComplementarModel extends Model
     $this->builder->select('a.*, al.nome as nome_aluno, ta.nome as nome_tp_atividade, ta.curricular');
     $this->applyFilters($this->builder, $s);
     $this->builder->limit($filters['perPage'], $offset);
-    $this->builder->orderBy('a.incluido_em', 'desc');
+    $this->builder->orderBy('a.created_at', 'desc');
     $data = $this->builder->get()->getResult();
     // $data = $this->builder->getCompiledSelect(); dd($data);
     $this->builder->select('count(a.*)');
@@ -40,8 +39,8 @@ class AtividadeComplementarModel extends Model
 
   private function applyFilters($builder, $search) {
 
-    $builder->join('alunos al','al.id = a.aluno_id','left');
-    $builder->join('tp_atividades ta','ta.id = a.tp_atividade_id','left');
+    $builder->join('instituicao.alunos al','al.id = a.aluno_id','left');
+    $builder->join('atividades.tp_atividades ta','ta.id = a.tp_atividade_id','left');
     foreach(explode(',',$search) as $s) {
       $s = trim($s);
       $builder->orLike("a.nome_atividade", $s, 'both', true, true);

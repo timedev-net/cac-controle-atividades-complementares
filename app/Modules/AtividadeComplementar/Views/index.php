@@ -72,7 +72,7 @@
                   <?php if ($e->deferida == null) echo '<span class="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300 whitespace-pre">Aguardando análise</span>' ?>
                 </div>
               </td>
-              <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= date_format(date_create($e->incluido_em), 'd/m/Y'); ?></td>
+              <td class="px-6 py-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= date_format(date_create($e->created_at), 'd/m/Y'); ?></td>
               <td class="px-6 py-4">
                 <div class="flex gap-x-4">
                   <a href="/atividade-complementar/analisar/<?= $e->id; ?>" data-tooltip-target="analisar" class="font-medium text-meuTema-600 dark:text-meuTema-500 hover:underline">

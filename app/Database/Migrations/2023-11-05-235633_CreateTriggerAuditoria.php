@@ -40,19 +40,32 @@ class CreateTriggerAuditoria extends Migration
         ";
         $this->db->query(new RawSql($sqlRawCreateFunction));
 
-        $sqlRawCreateTrigger = "CREATE TRIGGER t_auditoria_logs
+        $this->db->query(new RawSql("CREATE TRIGGER t_auditoria_logs
             AFTER INSERT OR UPDATE OR DELETE
             ON atividades.atividades_complementares
             FOR EACH ROW
             EXECUTE PROCEDURE audit_trigger();
-        ";
-        $this->db->query(new RawSql($sqlRawCreateTrigger));
+        "));
+        $this->db->query(new RawSql("CREATE TRIGGER t_auditoria_logs
+            AFTER INSERT OR UPDATE OR DELETE
+            ON atividades.tp_atividades
+            FOR EACH ROW
+            EXECUTE PROCEDURE audit_trigger();
+        "));
+        $this->db->query(new RawSql("CREATE TRIGGER t_auditoria_logs
+            AFTER INSERT OR UPDATE OR DELETE
+            ON instituicao.alunos
+            FOR EACH ROW
+            EXECUTE PROCEDURE audit_trigger();
+        "));
     }
 
     public function down()
     {
 
         $this->db->query(new RawSql("DROP TRIGGER t_auditoria_logs ON atividades.atividades_complementares;"));
+        $this->db->query(new RawSql("DROP TRIGGER t_auditoria_logs ON atividades.tp_atividades;"));
+        $this->db->query(new RawSql("DROP TRIGGER t_auditoria_logs ON instituicao.alunos;"));
         $this->db->query(new RawSql("DROP FUNCTION audit_trigger;"));
     }
 }

@@ -6,12 +6,11 @@ use CodeIgniter\Model;
 
 class AlunoModel extends Model
 {
-    protected $DBGroup = 'instituicao';
     public function __construct()
     {
         parent::__construct();
         $this->db = db_connect();
-        $this->builder = $this->db->table('alunos a');
+        $this->builder = $this->db->table('instituicao.alunos a');
     }
 
     public function getAll($filters = []): array
@@ -22,14 +21,14 @@ class AlunoModel extends Model
         $this->builder->select("a.*, jsonb_build_object(
             'carga_horaria', jsonb_agg(ac.carga_horaria),
             'deferida', jsonb_agg(ac.deferida)) as atividades");
-        $this->builder->join('atividades_complementares ac','ac.aluno_id = a.id','left');
+        $this->builder->join('atividades.atividades_complementares ac','ac.aluno_id = a.id','left');
         $this->builder->like("a.nome", $filters['search'], 'both', null, true);
         $this->builder->limit($filters['perPage'], $offset);
         $this->builder->orderBy('a.nome', 'asc');
         $this->builder->groupBy('a.id');
 
         $data = $this->builder->get()->getResult();
-        $total = $this->db->query('select count(a.*) from alunos a')->getResult();
+        $total = $this->db->query('select count(a.*) from instituicao.alunos a')->getResult();
         $totalPages = ceil(($total[0]->count / $filters['perPage']));
         for ($i=0; $i < count($data); $i++) {
             $atividades = json_decode($data[$i]->atividades);

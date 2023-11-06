@@ -41,8 +41,7 @@ class AlunoController extends BaseController
 
     public function showFormEdit($id): string
     {
-        $data = $this->model->getById($id);
-        $data['id'] = $id;
+        $data = (array)$this->model->getById($id);
         return view('Aluno/Views/form', $data);
     }
 
