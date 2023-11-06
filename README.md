@@ -53,6 +53,9 @@ Configurações específicas estão no diretório `./docker`
 - `php spark migrate:rollback` desfaz as migrações
 - `php spark migrate:refresh` desfaz e executa novamente as migrações
 
+## Diagrama Entidade Relacionamento - modelo físico
+<img src="/public/assets/MER.png" alt="DER">
+
 ## O sistema apresenta tema claro e escuro
 
 ### Light
