@@ -16,7 +16,7 @@ $a = !empty($this->data) ? $this->data : null; ?>
       <label class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Acadêmico cadastrado em: <span class="dark:text-white"><?= date_format(date_create($data->created_at), 'd/m/Y'); ?></span></label>
     </div>
     <div class="dark:bg-meuTema-700">
-      <label class="p-3 block text-2xl font-medium text-meuCinza-900 dark:text-white">Tipos de Atividades Concluídas</label>
+      <label class="p-3 block text-2xl font-medium text-meuCinza-900 dark:text-white">Tipos de Atividades Curriculares Concluídas</label>
 
       <div class="flex gap-4 flex-wrap justify-center bg-white dark:bg-meuTema-800 px-8 py-2">
         <?php foreach ($payload as $p) : ?>
