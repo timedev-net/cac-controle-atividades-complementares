@@ -93,3 +93,10 @@ https://theboroer.github.io/localtunnel-www/
 https://github.com/localtunnel/localtunnel
 
 - `lt --port 80`
+
+
+# Refatorando para Arquitetura Limpa
+
+- [ ] criação de um caso de uso para geração do uuid - lib ramsey/uuid
+- [ ] injeta o uuid criado no caso de uso para a entidade
+
