@@ -3,6 +3,7 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use Ramsey\Uuid\Uuid;
 
 class AddAtividadesComplementares extends Seeder
 {
@@ -220,6 +221,14 @@ class AddAtividadesComplementares extends Seeder
             ],
         ];
 
-        $this->db->table('atividades.atividades_complementares')->insertBatch($data);
+        date_default_timezone_set("America/Porto_Velho");
+        $newdata = array_map(function($e) {
+            $uuid = Uuid::uuid4();
+            $e['id'] = $uuid->toString();
+            $e['created_at'] = date("Y-m-d H:i:s");
+            return $e;
+        }, $data);
+
+        $this->db->table('atividades.atividades_complementares')->insertBatch($newdata);
     }
 }

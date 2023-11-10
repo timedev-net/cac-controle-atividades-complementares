@@ -3,6 +3,7 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use Ramsey\Uuid\Uuid;
 
 class AddTpAtividades extends Seeder
 {
@@ -24,6 +25,12 @@ class AddTpAtividades extends Seeder
             ['nome' => 'Clube ou grupo de alunos', 'curricular' => false, 'limite_hora' => 10],
         ];
 
-        $this->db->table('atividades.tp_atividades')->insertBatch($data);
+        $newdata = array_map(function($e) {
+            $uuid = Uuid::uuid4();
+            $e['id'] = $uuid->toString();
+            return $e;
+        }, $data);
+
+        $this->db->table('atividades.tp_atividades')->insertBatch($newdata);
     }
 }

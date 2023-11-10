@@ -4,8 +4,7 @@ class AlunoPostgres implements IRepository {
 
     private $db;
     private $builder;
-    public function __construct()
-    {
+    public function __construct() {
         $this->db = db_connect(); // $db = \Config\Database::connect();
         $this->builder = $this->db->table('instituicao.alunos a');
     }
