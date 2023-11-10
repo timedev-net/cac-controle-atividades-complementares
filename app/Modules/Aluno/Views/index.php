@@ -1,7 +1,8 @@
 <?= $this->extend('_config/Layout/mainLayout'); ?>
 <?= $this->section('conteudo'); ?>
+<?= $this->include('_config/alerts/messageToast'); ?>
 
-  <div class="xl:mx-[210px] m-4 overflow-hidden">
+<div class="xl:mx-[210px] m-4 overflow-hidden">
     <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Lista de Alunos</p>
     <div class="relative shadow-md sm:rounded-lg">
       <div class="p-3 md:p-4 flex flex-wrap gap-3 items-center justify-between pb-4 bg-meuBranco dark:bg-meuTema-800">
@@ -10,7 +11,7 @@
             Cadastrar Novo Aluno
           </a>
         </div>
-        <label for="table-search" class="sr-only">Pesquisa</label>
+        <span class="sr-only">Pesquisa</span>
         <form action="?search=" class="relative">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg class="w-4 h-4 text-meuCinza-400 dark:text-meuCinza-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -20,6 +21,8 @@
           <input name="search" value="<?= empty($_GET['search']) ? '' : $_GET['search'] ?>" type="text" class="block p-2 pl-10 text-sm text-meuCinza-900 border border-meuCinza-300 rounded-lg w-80 bg-meuTema-50 focus:ring-meuTema-500 focus:border-meuTema-500 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-meuBranco dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" placeholder="Pesquisar">
         </form>
       </div>
+
+      <?= $this->include('_config/alerts/confirmDeleteModal'); ?>
       <div class="overflow-x-auto ">
         <table class="w-full text-sm text-left text-meuCinza-400 dark:text-meuCinza-400">
           <thead class="text-xs text-meuCinza-700 uppercase bg-meuTema-50 dark:bg-meuTema-700 dark:text-meuCinza-400">
@@ -63,7 +66,7 @@
                       Editar Aluno
                       <div class="tooltip-arrow" data-popper-arrow></div>
                     </div>
-                    <a onclick="excluir(<?= $e->id; ?>)" data-tooltip-target="excluir" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="font-medium text-meuTema-600 dark:text-meuTema-500 hover:underline"><svg class="w-[18px] h-[18px] text-meuCinza-800 dark:text-meuBranco" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                    <a id="btn-excluir-<?= $e->id; ?>" onclick="excluir('<?= $e->id; ?>')" data-tooltip-target="excluir" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="font-medium text-meuTema-600 dark:text-meuTema-500 hover:underline"><svg class="w-[18px] h-[18px] text-meuCinza-800 dark:text-meuBranco" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h16M7 8v8m4-8v8M7 1h4a1 1 0 0 1 1 1v3H6V2a1 1 0 0 1 1-1ZM3 5h12v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5Z" />
                       </svg></a>
                     <div id="excluir" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-meuBranco transition-opacity duration-300 bg-meuTema-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-meuTema-700">
@@ -90,9 +93,6 @@
       </nav>
     </div>
   </div>
-
-  <?= $this->include('_config/alerts/messageToast'); ?>
-  <?= $this->include('_config/alerts/confirmDeleteModal'); ?>
 
   <script>
     let idAluno;

@@ -15,7 +15,7 @@ class AlunoValidate {
                 ]
             ],
             'matricula_suap' => [
-                'rules' => empty($id)?'required|min_length[10]|max_length[15]|is_unique[alunos.matricula_suap]':'required|min_length[10]|max_length[15]',
+                'rules' => empty($id)?'required|min_length[10]|max_length[15]':'required|min_length[10]|max_length[15]',
                 'errors' => [
                     'required' => 'A matrícula é obrigatória',
                     'min_length' => 'A matrícula deve ter no mínimo 10 números',

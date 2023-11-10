@@ -1,16 +1,18 @@
 <?php
 
-namespace App\LayerInfrastructure\InPostgres;
+namespace App\LayerInfrastructure\Repositories\InPostgres;
 
 use App\LayerDomain\Entities\Aluno;
 use App\LayerDomain\Interfaces\IRepository;
+// use CodeIgniter\Model;
+use Exception;
 
 class AlunoPostgres implements IRepository {
 
-    private $db;
-    private $builder;
+    protected $db;
+    protected $builder;
     public function __construct() {
-        $this->db = db_connect(); // $db = \Config\Database::connect();
+        $this->db = \Config\Database::connect();
         $this->builder = $this->db->table('instituicao.alunos a');
     }
 
@@ -47,28 +49,28 @@ class AlunoPostgres implements IRepository {
     }
     public function getById(string $id): Aluno {
         $this->builder->where('id', $id);
-        $data = $this->builder->get()->getRow();
-        return $data;
+        $data = (array)$this->builder->get()->getRow();
+        return new Aluno($data);
     }
-    public function create(Aluno $object): void {
-        if (!$this->builder->insert($object)) {
+    public function create(Aluno $aluno): void {
+        if (!$this->builder->insert($aluno->getAllProps())) {
             $error = $this->db->error();
             throw new Exception($error['message'], $error['code']);
         }
     }
-    public function update(Aluno $object): void {
-        if (!$this->builder->update($object, ['id' => $object->id])) {
+    public function update(Aluno $aluno): void {
+        if (!$this->builder->update($aluno->getAllProps(), ['id' => $aluno->getId()])) {
             $error = $this->db->error();
             throw new Exception($error['message'], $error['code']);
         }
     }
-    public function delete(string $id): void {
+    public function remove(string $id): void {
         if (!$this->builder->delete(['id' => $id])) {
             $error = $this->db->error();
             throw new Exception($error['message'], $error['code']);
         }
     }
-    public function getAllToSelectInput() {
+    public function getIdAndNameOfAllToSelectInput(): array {
         return $this->builder->select('a.id, a.nome')->get()->getResult();
     }
 

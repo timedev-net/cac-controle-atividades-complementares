@@ -9,16 +9,22 @@ class Aluno {
     private string $email;
     private string $created_at;
 
-    public function __construct(string $id, string $nome, string $matricula_suap, string $email) {
-        $this->setId($id);
-        $this->setNome($nome);
-        $this->setMatriculaSuap($matricula_suap);
-        $this->setEmail($email);
-        $this->setCreatedAt(date("Y-m-d H:i:s"));
+    public function __construct(array $data) {
+        $this->setId($data['id']);
+        $this->setNome($data['nome']);
+        $this->setMatriculaSuap($data['matricula_suap']);
+        $this->setEmail($data['email']);
+        $this->setCreatedAt($data['created_at']);
     }
 
-    public function getAluno(): self {
-        return $this;
+    public function getAllProps(): array {
+        return [
+			"id" => $this->getId(),
+			"nome" => $this->getNome(),
+			"matricula_suap" => $this->getMatriculaSuap(),
+			"email" => $this->getEmail(),
+			"created_at" => $this->getCreatedAt()
+		];
     }
 
 	public function getId(): string {

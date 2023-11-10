@@ -60,32 +60,34 @@
     <?php endif; ?>
 
 <script>
-    const messageEl = document.getElementById('message').innerText;
+    const messageEl = document.getElementById('message');
 
     const toastSuccess = document.getElementById('toast-success');
     const toastDanger = document.getElementById('toast-danger');
     const toastWarning = document.getElementById('toast-warning');
 
-    const messagesArray = Object.entries(JSON.parse(messageEl))
+    if (messageEl) {
+        const messagesArray = Object.entries(JSON.parse(messageEl.innerText))
 
-    let temp = 3000
-    for (const [key, value] of messagesArray) {
-        if (key === 'success') {
-            const tSuccess = new Dismiss(toastSuccess)
-            setTimeout(() => toastSuccess.style.opacity = '1', 50)
-            setTimeout(() => tSuccess.hide(), temp)
+        let temp = 3000
+        for (const [key, value] of messagesArray) {
+            if (key === 'success') {
+                const tSuccess = new Dismiss(toastSuccess)
+                setTimeout(() => toastSuccess.style.opacity = '1', 50)
+                setTimeout(() => tSuccess.hide(), temp)
+            }
+            if (key === 'error') {
+                const tDanger = new Dismiss(toastDanger);
+                setTimeout(() => toastDanger.style.opacity = '1', 50)
+                setTimeout(() => tDanger.hide(), temp)
+            }
+            if (key === 'info') {
+                const tWarning = new Dismiss(toastWarning);
+                setTimeout(() => toastWarning.style.opacity = '1', 50)
+                setTimeout(() => tWarning.hide(), temp)
+            }
+            temp += 2000
         }
-        if (key === 'error') {
-            const tDanger = new Dismiss(toastDanger);
-            setTimeout(() => toastDanger.style.opacity = '1', 50)
-            setTimeout(() => tDanger.hide(), temp)
-        }
-        if (key === 'info') {
-            const tWarning = new Dismiss(toastWarning);
-            setTimeout(() => toastWarning.style.opacity = '1', 50)
-            setTimeout(() => tWarning.hide(), temp)
-        }
-        temp += 2000
     }
 
 </script>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\LayerInfrastructure\InMemory;
+namespace App\LayerInfrastructure\Repositories\InMemory;
 
 use App\LayerDomain\Interfaces\IRepository;
 use Exception;
