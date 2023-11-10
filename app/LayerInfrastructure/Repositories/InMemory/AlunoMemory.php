@@ -1,4 +1,10 @@
 <?php
+
+namespace App\LayerInfrastructure\InMemory;
+
+use App\LayerDomain\Interfaces\IRepository;
+use Exception;
+
 class AlunoMemory implements IRepository {
 
     private array $repo;
@@ -21,7 +27,7 @@ class AlunoMemory implements IRepository {
         array_unshift($novo_repo, $object);
         $this->repo = $novo_repo;
     }
-    public function delete(int $id): void {
+    public function delete(string $id): void {
         $novo_repo = array_filter($this->repo, fn($e) => $e->id != $id);
         $this->repo = $novo_repo;
     }

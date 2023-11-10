@@ -1,4 +1,6 @@
 <?php
+namespace App\LayerDomain\Interfaces;
+
 interface IRepository {
     public function getAll(array $filters): array;
     public function getById(string $id): object;

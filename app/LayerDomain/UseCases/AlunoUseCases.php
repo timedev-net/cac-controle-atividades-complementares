@@ -1,4 +1,10 @@
 <?php
+namespace App\LayerDomain\UseCases;
+
+use App\LayerDomain\Entities\Aluno;
+use App\LayerDomain\Interfaces\IRepository;
+use App\LayerDomain\Interfaces\IUuid;
+
 class AlunoUseCases {
 
     protected IUuid $uuid;

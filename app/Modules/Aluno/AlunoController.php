@@ -2,6 +2,9 @@
 
 namespace App\Modules\Aluno;
 
+use App\LayerDomain\UseCases\AlunoUseCases;
+use App\LayerInfrastructure\Adapters\UuidAdapter;
+use App\LayerInfrastructure\InPostgres\AlunoPostgres;
 use App\Modules\Aluno\Utils\AlunoValidate;
 use App\Modules\BaseController;
 use CodeIgniter\Database\Exceptions\DatabaseException;
@@ -9,15 +12,20 @@ use CodeIgniter\Database\Exceptions\DatabaseException;
 class AlunoController extends BaseController
 {
     private $model;
+    private $useCase;
     protected $helpers = ['form'];
 
     public function __construct() {
         $this->model = new AlunoModel();
+        $uuid = new UuidAdapter();
+        $repo = new AlunoPostgres();
+        $this->useCase = new AlunoUseCases($uuid, $repo);
     }
 
     public function index(): string
     {
-        $data = $this->model->getAll($_GET);
+        // $data = $this->model->getAll($_GET);
+        $data = $this->useCase->listarAlunos($_GET);
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
         }

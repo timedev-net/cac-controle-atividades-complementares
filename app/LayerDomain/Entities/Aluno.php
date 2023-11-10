@@ -1,4 +1,7 @@
 <?php
+
+namespace App\LayerDomain\Entities;
+
 class Aluno {
     private string $id;
     private string $nome;

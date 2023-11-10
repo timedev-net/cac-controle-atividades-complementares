@@ -1,5 +1,10 @@
 <?php
 
+namespace App\LayerInfrastructure\InPostgres;
+
+use App\LayerDomain\Entities\Aluno;
+use App\LayerDomain\Interfaces\IRepository;
+
 class AlunoPostgres implements IRepository {
 
     private $db;
