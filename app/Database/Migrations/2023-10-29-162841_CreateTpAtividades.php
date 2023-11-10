@@ -11,7 +11,7 @@ class CreateTpAtividades extends Migration
     {
         $this->db->query(new RawSql(
             "CREATE TABLE atividades.tp_atividades (
-                id VARCHAR(36) UNIQUE PRIMARY KEY,
+                id UUID UNIQUE PRIMARY KEY,
                 nome VARCHAR(100) NOT NULL,
                 curricular BOOLEAN NOT NULL,
                 limite_hora INT NOT NULL
