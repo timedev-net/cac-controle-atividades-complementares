@@ -100,3 +100,8 @@ https://github.com/localtunnel/localtunnel
 - [ ] criação de um caso de uso para geração do uuid - lib ramsey/uuid
 - [ ] injeta o uuid criado no caso de uso para a entidade
 
+## Camada de Domínio
+Não depende de nada externo, nada de infra (framework, libs, banco de dados, serviços externos, etc.)
+
+## Camada de Infra
+Depende da camada de domínio e itens externos

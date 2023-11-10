@@ -11,14 +11,6 @@ class CreateAuditoriaLogs extends Migration
     // private $tableName = 'auditorias';
     public function up()
     {
-        // $this->forge->addField([
-        //     'data_hora_evento'   => ['type' => 'TIMESTAMP', 'default' => new RawSql('CURRENT_TIMESTAMP')],
-        //     'nome_tabela'        => ['type' => 'VARCHAR', 'constraint' => '50', 'null' => false],
-        //     'operacao'           => ['type' => 'VARCHAR', 'constraint' => '150', 'null' => false],
-        //     'registro_anterior'  => ['type' => 'JSON', 'null' => true],
-        //     'registro_posterior' => ['type' => 'JSON', 'null' => true],
-        // ]);
-        // $this->forge->createTable($this->tableName);
         $this->db->query(new RawSql(
             "CREATE TABLE logs.auditorias (
                 id SERIAL PRIMARY KEY,
@@ -33,7 +25,6 @@ class CreateAuditoriaLogs extends Migration
 
     public function down()
     {
-        // $this->forge->dropTable($this->tableName);
         $this->db->query(new RawSql("DROP TABLE logs.auditorias;"));
     }
 }
