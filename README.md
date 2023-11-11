@@ -128,9 +128,13 @@ comando para criar o link simbólico do phpunit
 ln -s ./vendor/bin/phpunit ./phpunit
 ```
 
-comando para executar o teste
+comando para executar um teste específico
 ```
 php phpunit tests/AlunoUseCaseTest.php
+```
+comando para executar todos os testes do diretório
+```
+php phpunit tests
 ```
 ### Lista de Tarefas
 - [ ] criação de um caso de uso para geração do uuid - lib ramsey/uuid
