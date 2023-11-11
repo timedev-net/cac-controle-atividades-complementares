@@ -1,6 +1,6 @@
 # .env
 .idea/
-.vscode/
+# .vscode/
 application/logs
 application/cache
 application/config/config.php
@@ -17,3 +17,6 @@ writable/
 # docker-compose.yml
 
 tmp/
+
+.phpunit.result.cache
+build/

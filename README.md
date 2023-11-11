@@ -105,3 +105,15 @@ Não depende de nada externo, nada de infra (framework, libs, banco de dados, se
 
 ## Camada de Infra
 Depende da camada de domínio e itens externos
+
+
+# Testes Unitários
+comando para criar o link simbólico do phpunit
+```console
+> ln -s ./vendor/bin/phpunit ./phpunit
+```
+
+comando para executar o teste
+```
+> php phpunit app/LayerDomain/_tests/Arquivo.php
+```
