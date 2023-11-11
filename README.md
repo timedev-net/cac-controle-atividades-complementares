@@ -130,7 +130,7 @@ ln -s ./vendor/bin/phpunit ./phpunit
 
 comando para executar o teste
 ```
-php phpunit app/LayerDomain/_tests/Arquivo.php
+php phpunit tests/AlunoUseCaseTest.php
 ```
 ### Lista de Tarefas
 - [ ] criação de um caso de uso para geração do uuid - lib ramsey/uuid
