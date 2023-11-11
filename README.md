@@ -8,6 +8,7 @@
 - Plpgsql
 ### Framework
 - CodeIgniter 4
+- PhpUnit 9.1
 ### Libs JavaScript e CSS
 - JQuery 3.7.1
 - Flowbite 2.0.0
@@ -42,16 +43,43 @@ Configurações específicas estão no diretório `./docker`
 
 ### Comandos para executar o projeto com o Docker
 
-1. `docker volume create db-atvd-complement` cria o volume para o banco de dados
-2. `docker volume ls` verifica o volume criado
-3. `docker compose up -d` constroi todo o ambiente e sobe a aplicação com o banco de dados
-4. `docker exec -it app_atvd_complement /bin/bash` entra no terminal do container para executar as migrations e seeders
-5. `php spark migrate` executa as migrações de dentro do container
-6. `php spark db:seed RunSeeder` semeia o banco de dados
+1. Cria o volume para o banco de dados
+```
+docker volume create db-atvd-complement
+```
+2. Verifica o volume criado
+```
+docker volume ls
+```
+3. Constroi todo o ambiente em containers e executa (aplicação e banco de dados)
+```
+docker compose up -d
+```
+4. Entra no terminal do container da aplicação para executar as _migrations_ e _seeders_
+```
+docker exec -it app_atvd_complement /bin/bash
+```
+5. Executa as migrações de dentro do container
+```
+php spark migrate
+```
+6. Semeia o banco de dados
+```
+php spark db:seed RunSeeder
+```
 ### Outros comandos úteis
-- `php spark migrate:status` exibe o status das migrações
-- `php spark migrate:rollback` desfaz as migrações
-- `php spark migrate:refresh` desfaz e executa novamente as migrações
+- Exibe o status das migrações
+```
+php spark migrate:status
+```
+- Desfaz as migrações
+```
+php spark migrate:rollback
+```
+- Atualiza as migrações, desfaz tudo e executa novamente
+```
+php spark migrate:refresh
+```
 
 ## Diagrama Entidade Relacionamento - modelo físico
 <img src="/public/assets/MER.png" alt="DER">
@@ -64,56 +92,43 @@ Configurações específicas estão no diretório `./docker`
 ### Dark
 <img src="/public/assets/temaDark.png" alt="temaDark">
 
-### Coisas a fazer:
-
-1ª Etapa
-- [x] adicionar validação no formulário
-- [x] exibir mensagens de feedback de cadastro, atualização e exclusão
-- [x] personalização do sistema com temas
-- [x] fazer o tratamento dos erros
-- [x] mudar logo e favicon do sistema
-
-2ª Etapa
-- [x] fazer o CRUD de tipos de atividade
-- [x] Criar tela para inserção das atividades, novo botão na linha da lista de alunos
-- [x] Criar tela para analisar as solicitações
-
-3ª Etapa
-- [x] Criar uma tela para os relatórios de atividades completamentes
-- [x] Criar uma tela para os relatórios de alunos
-- [x] Criar trigger para registro de logs de auditoria no banco
-
-4ª Etapa (atividades futuras)
+### Atividades futuras:
 - [ ] Fazer autenticação
 - [ ] Documentar o uso do sistema
+- [ ] Desmonstrar a mesma camada de domínio sendo usada em outro Framework (Laravel por exemplo)
 
 ## Tunelamento do WSL
-
-https://theboroer.github.io/localtunnel-www/
-https://github.com/localtunnel/localtunnel
-
-- `lt --port 80`
-
+O tunelamento é usado para expor a aplicação rodando dentro do WSL para a rede externa
+[Local Tunnel](https://theboroer.github.io/localtunnel-www/)
+[GitHub Local Tunnel]https://github.com/localtunnel/localtunnel
+comando para expor a porta (é gerado um nome de domínio público aleatório)
+```
+lt --port 80
+```
 
 # Refatorando para Arquitetura Limpa
+O objetivo de refatorar a aplicação para uso dos conceitos do _clean architecture_ é para que se possa separar a camada do __domínio__ das dependências externas (framework e demais bibliotecas).
 
-- [ ] criação de um caso de uso para geração do uuid - lib ramsey/uuid
-- [ ] injeta o uuid criado no caso de uso para a entidade
+O uso dessa abordagem contribui para a longevidade da aplicação, visto que a todo instante surgem novas tecnologias, e quando a camada de domínio é desacoplada da camada de infraestrutura, torna-se indolor qualquer atualização de tecnologia dentro do projeto, seja mudanças de framework, banco de dados ou qualquer biblioteca. Essa abordagem evita que o projeto se torne um grande sistema legado.
 
 ## Camada de Domínio
-Não depende de nada externo, nada de infra (framework, libs, banco de dados, serviços externos, etc.)
+Localizada dentro da pasta `app/LayerDomain`
+Contém todas as __entidades__, os __casos de uso__ e os __contratos de domínio__, não dependendo de nada que esteja fora desse próprio diretório, ou seja, todas as classes e interfaces utilizam apenas o PHP puro, sendo a camada de domínio o coração da aplicação.
 
-## Camada de Infra
-Depende da camada de domínio e itens externos
+## Camada de Infraestrutura
+Localizada dentro da pasta `app/LayerInfrastructure`
+É essa camada que depende da camada de domínio, nela ficam os __controladores__, classes que tem a responsabilidade de receber a requisição, decidir o que fazer (chamar porventura os casos de uso), e devolver a resposta ao cliente. Na camada também ficam os arquivos de visualização e qualquer outras classes que possuam, ou não, dependências externas (blibliotecas, api's de terceiros, etc.).
 
-
-# Testes Unitários
+# Testes unitários da camada de domínio
 comando para criar o link simbólico do phpunit
 ```console
-> ln -s ./vendor/bin/phpunit ./phpunit
+ln -s ./vendor/bin/phpunit ./phpunit
 ```
 
 comando para executar o teste
 ```
-> php phpunit app/LayerDomain/_tests/Arquivo.php
+php phpunit app/LayerDomain/_tests/Arquivo.php
 ```
+### Lista de Tarefas
+- [ ] criação de um caso de uso para geração do uuid - lib ramsey/uuid
+- [ ] injeta o uuid criado no caso de uso para a entidade
