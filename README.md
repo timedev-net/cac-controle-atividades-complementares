@@ -99,9 +99,12 @@ php spark migrate:refresh
 
 ## Tunelamento do WSL
 O tunelamento é usado para expor a aplicação rodando dentro do WSL para a rede externa
+
 [Local Tunnel](https://theboroer.github.io/localtunnel-www/)
-[GitHub Local Tunnel]https://github.com/localtunnel/localtunnel
-comando para expor a porta (é gerado um nome de domínio público aleatório)
+
+[GitHub Local Tunnel](https://github.com/localtunnel/localtunnel)
+
+Comando para expor a porta (é gerado um nome de domínio público aleatório)
 ```
 lt --port 80
 ```
