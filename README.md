@@ -109,14 +109,14 @@ lt --port 80
 # Refatorando para Arquitetura Limpa
 O objetivo de refatorar a aplicação para uso dos conceitos do _clean architecture_ é para que se possa separar a camada do __domínio__ das dependências externas (framework e demais bibliotecas).
 
-O uso dessa abordagem contribui para a longevidade da aplicação, visto que a todo instante surgem novas tecnologias, e quando a camada de domínio é desacoplada da camada de infraestrutura, torna-se indolor qualquer atualização de tecnologia dentro do projeto, seja mudanças de framework, banco de dados ou qualquer biblioteca. Essa abordagem evita que o projeto se torne um grande sistema legado.
+O uso dessa abordagem contribui para a longevidade da aplicação, visto que a todo instante surgem novas tecnologias, e quando a camada de domínio é desacoplada da camada de externa, torna-se indolor qualquer atualização de tecnologia dentro do projeto, seja mudanças de framework, banco de dados ou qualquer biblioteca. Essa abordagem evita que o projeto se torne um grande sistema legado.
 
 ## Camada de Domínio
 Localizada dentro da pasta `app/LayerDomain`
 Contém todas as __entidades__, os __casos de uso__ e os __contratos de domínio__, não dependendo de nada que esteja fora desse próprio diretório, ou seja, todas as classes e interfaces utilizam apenas o PHP puro, sendo a camada de domínio o coração da aplicação.
 
-## Camada de Infraestrutura
-Localizada dentro da pasta `app/LayerInfrastructure`
+## Camada Externa
+Localizada dentro da pasta `app/LayerExternal`
 É essa camada que depende da camada de domínio, nela ficam os __controladores__, classes que tem a responsabilidade de receber a requisição, decidir o que fazer (chamar porventura os casos de uso), e devolver a resposta ao cliente. Na camada também ficam os arquivos de visualização e qualquer outras classes que possuam, ou não, dependências externas (blibliotecas, api's de terceiros, etc.).
 
 # Testes unitários da camada de domínio

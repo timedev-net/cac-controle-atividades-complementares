@@ -1,6 +1,6 @@
 <?php
 
-namespace App\LayerInfrastructure\Repositories\InPostgres;
+namespace App\LayerExternal\Repositories\InPostgres;
 
 use App\LayerDomain\Entities\Aluno;
 use App\LayerDomain\Interfaces\IRepository;

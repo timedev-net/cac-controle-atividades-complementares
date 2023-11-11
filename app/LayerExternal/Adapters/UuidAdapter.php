@@ -1,6 +1,6 @@
 <?php
 
-namespace App\LayerInfrastructure\Adapters;
+namespace App\LayerExternal\Adapters;
 
 use App\LayerDomain\Interfaces\IUuid;
 use Ramsey\Uuid\Uuid;
