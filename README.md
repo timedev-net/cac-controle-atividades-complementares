@@ -120,7 +120,7 @@ Contém todas as __entidades__, os __casos de uso__ e os __contratos de domínio
 
 ## Camada Externa
 Localizada dentro da pasta `app/LayerExternal`
-É essa camada que depende da camada de domínio, nela ficam os __controladores__, classes que tem a responsabilidade de receber a requisição, decidir o que fazer (chamar porventura os casos de uso), e devolver a resposta ao cliente. Na camada também ficam os arquivos de visualização e qualquer outras classes que possuam, ou não, dependências externas (blibliotecas, api's de terceiros, etc.).
+É essa camada que depende da camada de domínio, nela ficam os __controladores__, classes que tem a responsabilidade de receber a requisição, decidir o que fazer (chamar porventura os casos de uso), e devolver a resposta ao cliente. Na camada também ficam os arquivos de visualização e qualquer outras classes que tenham ou não dependências externas (blibliotecas, api's de terceiros, etc.).
 
 # Testes unitários da camada de domínio
 comando para criar o link simbólico do phpunit
