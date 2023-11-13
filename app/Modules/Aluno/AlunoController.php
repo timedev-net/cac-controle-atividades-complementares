@@ -3,8 +3,8 @@
 namespace App\Modules\Aluno;
 
 use App\LayerDomain\UseCases\AlunoUseCase;
-use App\LayerInfrastructure\Adapters\UuidAdapter;
-use App\LayerInfrastructure\Repositories\InPostgres\AlunoPostgres;
+use App\LayerExternal\Adapters\UuidAdapter;
+use App\LayerExternal\Repositories\InPostgres\AlunoPostgres;
 use App\Modules\Aluno\Utils\AlunoValidate;
 use App\Modules\BaseController;
 use CodeIgniter\Database\Exceptions\DatabaseException;
