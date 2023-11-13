@@ -1,6 +1,7 @@
 <?php
 namespace App\LayerDomain\UseCases;
 
+use App\LayerDomain\_Validations\AlunoValidation;
 use App\LayerDomain\Entities\Aluno;
 use App\LayerDomain\Interfaces\IRepository;
 use App\LayerDomain\Interfaces\IUuid;
@@ -21,12 +22,14 @@ class AlunoUseCase {
         return $this->repository->getById($id);
     }
     public function cadastrarAluno(array $data): void {
-        // chama a validação do nome
-        // chama a validação do email
-        // chama a validação da matricula
+        AlunoValidation::nome($data['nome']);
+        AlunoValidation::email($data['email']);
+        AlunoValidation::matriculaSuap($data['matricula_suap']);
         $data['id'] = $this->uuid->generate();
         $data['created_at'] = date("Y-m-d H:i:s");
+
         $this->repository->create(new Aluno($data));
+        // print_r($data);
     }
     public function atualizarAluno(string $id, array $data): void {
         $data['id'] = $id;

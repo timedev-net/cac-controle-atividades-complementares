@@ -8,7 +8,7 @@ use Exception;
 
 class AlunoMemory implements IRepository {
 
-    private array $repo;
+    private array $repo = [];
 
     public function getAll(array $filters): array {
         return $this->repo;
