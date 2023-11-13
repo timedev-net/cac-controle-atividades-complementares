@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Modules\TpAtividade;
+namespace App\LayerExternal\Controllers;
 
-use App\Modules\BaseController;
 use App\Modules\TpAtividade\Utils\TpAtividadeValidate;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
 
-class TpAtividadeController extends BaseController
+class TpAtividadeController extends _BaseController
 {
     private $model;
     protected $helpers = ['form'];
@@ -23,7 +22,7 @@ class TpAtividadeController extends BaseController
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
         }
-        
+
         return view('TpAtividade/Views/index', $data);
     }
 

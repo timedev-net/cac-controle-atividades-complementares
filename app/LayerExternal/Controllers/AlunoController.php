@@ -1,15 +1,13 @@
 <?php
-
-namespace App\Modules\Aluno;
+namespace App\LayerExternal\Controllers;
 
 use App\LayerDomain\UseCases\AlunoUseCase;
 use App\LayerExternal\Adapters\UuidAdapter;
 use App\LayerExternal\Repositories\InPostgres\AlunoPostgres;
-use App\Modules\Aluno\Utils\AlunoValidate;
-use App\Modules\BaseController;
+use App\LayerExternal\Validations\AlunoValidate;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
-class AlunoController extends BaseController
+class AlunoController extends _BaseController
 {
     private $useCase;
     protected $helpers = ['form'];
@@ -18,16 +16,16 @@ class AlunoController extends BaseController
         $this->useCase = new AlunoUseCase(new UuidAdapter(), new AlunoPostgres());
     }
 
-    public function index(): string {
+    public function index() {
         $data = $this->useCase->listarAlunos($_GET);
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
         }
-        return view('Aluno/Views/index', $data);
+        return view('AlunoViews/index', $data);
     }
 
     public function showFormCreate(): string {
-        return view('Aluno/Views/form');
+        return view('AlunoViews/form');
     }
 
     public function create() {
@@ -41,14 +39,13 @@ class AlunoController extends BaseController
 
     public function showFormEdit($id) {
         $data = $this->useCase->detalharAluno($id);
-        return view('Aluno/Views/form', $data->getAllProps());
+        return view('AlunoViews/form', $data->getAllProps());
     }
 
     public function update($id) {
         if (!$this->validate(AlunoValidate::getRulesValidation($id))) {
             return redirect()->back()->withInput();
         }
-        // $this->model->atualizar($id, $_POST);
         $this->useCase->atualizarAluno($id, $_POST);
         $this->session->setFlashdata('success', 'Aluno atualizado com sucesso!');
         return redirect()->to('/alunos');

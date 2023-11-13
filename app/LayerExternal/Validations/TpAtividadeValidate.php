@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-namespace App\Modules\TpAtividade\Utils;
+namespace App\LayerExternal\Validations;
 
 class TpAtividadeValidate {
     public static function getRulesValidation() {
@@ -18,7 +18,7 @@ class TpAtividadeValidate {
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'O campo é obrigatório',
-                    
+
                 ]
             ],
             'limite_hora' => [

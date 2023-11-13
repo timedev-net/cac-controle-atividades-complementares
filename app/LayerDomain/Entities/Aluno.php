@@ -7,24 +7,25 @@ class Aluno {
     private string $nome;
     private string $matricula_suap;
     private string $email;
-    private string $created_at;
+    private ?string $created_at;
 
     public function __construct(array $data) {
         $this->setId($data['id']);
         $this->setNome($data['nome']);
         $this->setMatriculaSuap($data['matricula_suap']);
         $this->setEmail($data['email']);
-        $this->setCreatedAt($data['created_at']);
+        if (isset($data['created_at'])) $this->setCreatedAt($data['created_at']);
     }
 
     public function getAllProps(): array {
-        return [
+		$data = [
 			"id" => $this->getId(),
 			"nome" => $this->getNome(),
 			"matricula_suap" => $this->getMatriculaSuap(),
-			"email" => $this->getEmail(),
-			"created_at" => $this->getCreatedAt()
+			"email" => $this->getEmail()
 		];
+		if (isset($this->created_at)) $data["created_at"] = $this->created_at;
+		return $data;
     }
 
 	public function getId(): string {
@@ -63,7 +64,7 @@ class Aluno {
 		return $this;
 	}
 
-	public function getCreatedAt(): string {
+	public function getCreatedAt(): string|null {
 		return $this->created_at;
 	}
 

@@ -10,7 +10,7 @@ $routes = Services::routes();
  * Router Setup
  * --------------------------------------------------------------------
  */
-$routes->setDefaultNamespace('App\Modules');
+$routes->setDefaultNamespace('App\LayerExternal\Controllers');
 // $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
@@ -30,38 +30,38 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home\HomeController::index');
+$routes->get('/', 'HomeController::index');
 
 // ALUNOS
-$routes->get('/alunos', 'Aluno\AlunoController::index');
-$routes->get('/aluno/novo', 'Aluno\AlunoController::showFormCreate');
-$routes->post('/aluno/novo', 'Aluno\AlunoController::create');
-$routes->get('/aluno/editar/(:any)', 'Aluno\AlunoController::showFormEdit/$1');
-$routes->post('/aluno/editar/(:any)', 'Aluno\AlunoController::update/$1');
-$routes->get('/aluno/deletar/(:any)', 'Aluno\AlunoController::delete/$1');
+$routes->get('/alunos', 'AlunoController::index');
+$routes->get('/aluno/novo', 'AlunoController::showFormCreate');
+$routes->post('/aluno/novo', 'AlunoController::create');
+$routes->get('/aluno/editar/(:any)', 'AlunoController::showFormEdit/$1');
+$routes->post('/aluno/editar/(:any)', 'AlunoController::update/$1');
+$routes->get('/aluno/deletar/(:any)', 'AlunoController::delete/$1');
 
 // ATIVIDADES COMPLEMENTARES
-$routes->get('/atividades-complementares', 'AtividadeComplementar\AtividadeComplementarController::index');
-$routes->get('/atividade-complementar/novo', 'AtividadeComplementar\AtividadeComplementarController::showFormCreate');
-$routes->post('/atividade-complementar/novo', 'AtividadeComplementar\AtividadeComplementarController::create');
-$routes->get('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::showFormEdit/$1');
-$routes->post('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::update/$1');
-$routes->get('/atividade-complementar/deletar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::delete/$1');
-$routes->get('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividadeForm/$1');
-$routes->post('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividade/$1');
+// $routes->get('/atividades-complementares', 'AtividadeComplementar\AtividadeComplementarController::index');
+// $routes->get('/atividade-complementar/novo', 'AtividadeComplementar\AtividadeComplementarController::showFormCreate');
+// $routes->post('/atividade-complementar/novo', 'AtividadeComplementar\AtividadeComplementarController::create');
+// $routes->get('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::showFormEdit/$1');
+// $routes->post('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::update/$1');
+// $routes->get('/atividade-complementar/deletar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::delete/$1');
+// $routes->get('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividadeForm/$1');
+// $routes->post('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividade/$1');
 
-// TIPOS DE ATIVIDADES
-$routes->get('/tp-atividades', 'TpAtividade\TpAtividadeController::index');
-$routes->get('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::showFormCreate');
-$routes->post('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::create');
-$routes->get('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::showFormEdit/$1');
-$routes->post('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::update/$1');
-$routes->get('/tp-atividade/deletar/(:any)', 'TpAtividade\TpAtividadeController::delete/$1');
+// // TIPOS DE ATIVIDADES
+// $routes->get('/tp-atividades', 'TpAtividade\TpAtividadeController::index');
+// $routes->get('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::showFormCreate');
+// $routes->post('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::create');
+// $routes->get('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::showFormEdit/$1');
+// $routes->post('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::update/$1');
+// $routes->get('/tp-atividade/deletar/(:any)', 'TpAtividade\TpAtividadeController::delete/$1');
 
-// RELATÓRIOS
-$routes->get('/relatorios/atividades', 'Relatorio\RelatorioController::atividadesList');
-$routes->get('/relatorios/alunos', 'Relatorio\RelatorioController::alunosList');
-$routes->get('/relatorios/aluno/(:any)/detalhes', 'Relatorio\RelatorioController::alunoDetalhes/$1');
+// // RELATÓRIOS
+// $routes->get('/relatorios/atividades', 'Relatorio\RelatorioController::atividadesList');
+// $routes->get('/relatorios/alunos', 'Relatorio\RelatorioController::alunosList');
+// $routes->get('/relatorios/aluno/(:any)/detalhes', 'Relatorio\RelatorioController::alunoDetalhes/$1');
 
 
 /*

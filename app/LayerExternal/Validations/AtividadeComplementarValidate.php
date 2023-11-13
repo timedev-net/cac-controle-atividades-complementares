@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\AtividadeComplementar\Utils;
+namespace App\LayerExternal\Validations;
 
 class AtividadeComplementarValidate {
     public static function getRulesValidation() {

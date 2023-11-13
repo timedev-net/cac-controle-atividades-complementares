@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Modules\Home;
+namespace App\LayerExternal\Controllers;
 
-use App\Modules\BaseController;
 use CodeIgniter\Database\RawSql;
 
-class HomeController extends BaseController
+class HomeController extends _BaseController
 {
     public function index(): string
     {
@@ -15,6 +14,6 @@ class HomeController extends BaseController
         //     model VARCHAR(255),
         //     year INT
         //   )')));
-        return view('Home/Views/index');
+        return view('HomeViews/index');
     }
 }

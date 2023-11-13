@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Modules\Relatorio;
+namespace App\LayerExternal\Controllers;
 
 use App\Modules\Aluno\AlunoModel;
 use App\Modules\AtividadeComplementar\AtividadeComplementarModel;
-use App\Modules\BaseController;
 use App\Modules\TpAtividade\TpAtividadeModel;
 
-class RelatorioController extends BaseController
+class RelatorioController extends _BaseController
 {
     public function atividadesList(): string
     {

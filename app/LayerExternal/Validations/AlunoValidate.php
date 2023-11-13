@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Aluno\Utils;
+namespace App\LayerExternal\Validations;
 
 class AlunoValidate {
     public static function getRulesValidation($id) {

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Modules\AtividadeComplementar;
+namespace App\LayerExternal\Controllers;
 
 use App\Modules\Aluno\AlunoModel;
-use App\Modules\BaseController;
 use App\Modules\AtividadeComplementar\Utils\AtividadeComplementarValidate;
 use App\Modules\TpAtividade\TpAtividadeModel;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
-class AtividadeComplementarController extends BaseController
+class AtividadeComplementarController extends _BaseController
 {
     private $model;
     protected $helpers = ['form'];
