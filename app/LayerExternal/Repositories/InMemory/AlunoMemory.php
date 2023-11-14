@@ -8,7 +8,7 @@ use Exception;
 
 class AlunoMemory implements IRepository {
 
-    private array $repo = [];
+    protected array $repo = [];
 
     public function getAll(array $filters): array {
         return $this->repo;
@@ -20,10 +20,10 @@ class AlunoMemory implements IRepository {
         }
         throw new Exception("Id não encontrado no repositório");
     }
-    public function create(Aluno $object): void {
+    public function create(object $object): void {
         array_unshift($this->repo, $object);
     }
-    public function update(Aluno $object): void {
+    public function update(object $object): void {
         $novo_repo = array_filter($this->repo, fn($e) => $e->id != $object->id);
         array_unshift($novo_repo, $object);
         $this->repo = $novo_repo;
