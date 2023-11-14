@@ -10,26 +10,26 @@ $a = !empty($this->data) ? $this->data : null; ?>
 
 
     <div class="bg-white dark:bg-meuTema-800 px-8 pt-8 pb-2">
-      <label class="block mb-2 text-3xl font-medium text-meuTema-500 dark:text-meuTema-400"><?= $data->nome; ?></label>
-      <label class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Matrícula SUAP: <span class="dark:text-white"><?= $data->matricula_suap; ?></span></label>
-      <label class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">E-mail: <span class="dark:text-white"><?= $data->email; ?></span></label>
-      <label class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Acadêmico cadastrado em: <span class="dark:text-white"><?= date_format(date_create($data->created_at), 'd/m/Y'); ?></span></label>
+      <span class="block mb-2 text-3xl font-medium text-meuTema-500 dark:text-meuTema-400"><?= $data->nome; ?></span>
+      <span class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Matrícula SUAP: <span class="dark:text-white"><?= $data->matricula_suap; ?></span></span>
+      <span class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">E-mail: <span class="dark:text-white"><?= $data->email; ?></span></span>
+      <span class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Acadêmico cadastrado em: <span class="dark:text-white"><?= date_format(date_create($data->created_at), 'd/m/Y'); ?></span></span>
     </div>
     <div class="dark:bg-meuTema-700">
-      <label class="p-3 block text-2xl font-medium text-meuCinza-900 dark:text-white">Tipos de Atividades Curriculares Concluídas</label>
+      <span class="p-3 block text-2xl font-medium text-meuCinza-900 dark:text-white">Tipos de Atividades Curriculares Concluídas</span>
 
       <div class="flex gap-4 flex-wrap justify-center bg-white dark:bg-meuTema-800 px-8 py-2">
         <?php foreach ($payload as $p) : ?>
         <div class="p-3 rounded-lg shadow dark:bg-meuTema-900">
-          <label class="block mb-2 text-xl font-medium text-meuTema-500 dark:text-meuTema-400"><?= $p->nome_atividade; ?></label>
-          <label class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Limite mínimo de horas: <span class="dark:text-white"><?= $p->limite_min_horas; ?></span></label>
-          <label class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Quantidade de horas deferidas: <span class="dark:text-white"><?= $p->horas_deferidas; ?></span></label>
+          <span class="block mb-2 text-xl font-medium text-meuTema-500 dark:text-meuTema-400"><?= $p->nome_atividade; ?></span>
+          <span class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Limite mínimo de horas: <span class="dark:text-white"><?= $p->limite_min_horas; ?></span></span>
+          <span class="block mb-2 text-md text-meuCinza-900 dark:text-meuCinza-300">Quantidade de horas deferidas: <span class="dark:text-white"><?= $p->horas_deferidas; ?></span></span>
         </div>
         <?php endforeach; ?>
       </div>
     </div>
     <div class="dark:bg-meuTema-700">
-      <label class="p-3 block text-2xl font-medium text-meuCinza-900 dark:text-white">Atividades Cadastradas</label>
+      <span class="p-3 block text-2xl font-medium text-meuCinza-900 dark:text-white">Atividades Cadastradas</span>
       <div class="flex gap-4 flex-wrap justify-center bg-white dark:bg-meuTema-800 p-6">
         <?php foreach ($data->atividades as $a) : ?>
           <div class="max-w-sm p-6 bg-white border border-meuTema-200 rounded-lg shadow dark:bg-meuTema-900 dark:border-meuTema-700">

@@ -7,7 +7,7 @@ use App\LayerDomain\Interfaces\IRepository;
 // use CodeIgniter\Model;
 use Exception;
 
-class AlunoPostgres implements IRepository {
+class AlunoModel implements IRepository {
 
     protected $db;
     protected $builder;
@@ -52,13 +52,13 @@ class AlunoPostgres implements IRepository {
         $data = (array)$this->builder->get()->getRow();
         return new Aluno($data);
     }
-    public function create(Aluno $aluno): void {
+    public function create(object $aluno): void {
         if (!$this->builder->insert($aluno->getAllProps())) {
             $error = $this->db->error();
             throw new Exception($error['message'], $error['code']);
         }
     }
-    public function update(Aluno $aluno): void {
+    public function update(object $aluno): void {
         if (!$this->builder->update($aluno->getAllProps(), ['id' => $aluno->getId()])) {
             $error = $this->db->error();
             throw new Exception($error['message'], $error['code']);

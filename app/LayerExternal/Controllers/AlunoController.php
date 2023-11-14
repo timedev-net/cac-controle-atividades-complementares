@@ -3,7 +3,7 @@ namespace App\LayerExternal\Controllers;
 
 use App\LayerDomain\UseCases\AlunoUseCase;
 use App\LayerExternal\Adapters\UuidAdapter;
-use App\LayerExternal\Repositories\InPostgres\AlunoPostgres;
+use App\LayerExternal\Repositories\InPostgres\AlunoModel;
 use App\LayerExternal\Validations\AlunoValidate;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
@@ -13,7 +13,7 @@ class AlunoController extends _BaseController
     protected $helpers = ['form'];
 
     public function __construct() {
-        $this->useCase = new AlunoUseCase(new UuidAdapter(), new AlunoPostgres());
+        $this->useCase = new AlunoUseCase(new UuidAdapter(), new AlunoModel());
     }
 
     public function index() {

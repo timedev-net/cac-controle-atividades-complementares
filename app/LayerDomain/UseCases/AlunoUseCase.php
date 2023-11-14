@@ -22,9 +22,7 @@ class AlunoUseCase {
         return $this->repository->getById($id);
     }
     public function cadastrarAluno(array $data): void {
-        AlunoValidation::nome($data['nome']);
-        AlunoValidation::email($data['email']);
-        AlunoValidation::matriculaSuap($data['matricula_suap']);
+        AlunoValidation::all($data);
         $data['id'] = $this->uuid->generate();
         $data['created_at'] = date("Y-m-d H:i:s");
 

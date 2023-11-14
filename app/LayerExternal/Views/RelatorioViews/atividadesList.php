@@ -16,7 +16,7 @@
   <div class="relative shadow-md sm:rounded-lg">
     <div class="p-3 md:p-4 flex flex-wrap gap-3 items-center justify-center pb-4 bg-meuBranco dark:bg-meuTema-800">
 
-      <label for="table-search" class="sr-only">Pesquisa</label>
+      <span for="table-search" class="sr-only">Pesquisa</span>
       <form action="?search=" class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <svg class="w-4 h-4 text-meuCinza-400 dark:text-meuCinza-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">

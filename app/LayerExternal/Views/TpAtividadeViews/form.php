@@ -1,6 +1,6 @@
 <?php echo $this->extend('_config/Layout/mainLayout'); ?>
 <?php echo $this->section('conteudo');
-$a = !empty($this->data) ? $this->data[0] : null;
+$a = !empty($this->data) ? (object)$this->data : null;
 ?>
 <div class="md:mx-[210px] m-4">
   <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Cadastro - Tipo de Atividade</p>

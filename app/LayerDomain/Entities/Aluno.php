@@ -24,7 +24,7 @@ class Aluno {
 			"matricula_suap" => $this->getMatriculaSuap(),
 			"email" => $this->getEmail()
 		];
-		if (isset($this->created_at)) $data["created_at"] = $this->created_at;
+		if (isset($this->created_at)) $data["created_at"] = $this->getCreatedAt();
 		return $data;
     }
 

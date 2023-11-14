@@ -1,6 +1,10 @@
 <?php echo $this->extend('_config/Layout/mainLayout'); ?>
 <?php echo $this->section('conteudo');
-$a = !empty($this->data) ? $this->data : null; ?>
+$a = !empty($this->data) ? $this->data : null;
+if(isset($a['data'])) $a['data'] = (object)$a['data'];
+if(isset($a['tp_atividade'])) $a['tp_atividade'] = (object)$a['tp_atividade'];
+if(isset($a['aluno'])) $a['aluno'] = (object)$a['aluno'];
+?>
 <div class="md:mx-[210px] m-4">
   <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Análise de Atividade Complementar</p>
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -27,22 +31,22 @@ $a = !empty($this->data) ? $this->data : null; ?>
         <fieldset class="flex gap-5 bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500">
           <legend class="sr-only">Deferir?</legend>
           <div class="flex items-center">
-            <input <?php if (!empty($a['data']) && $a['data']->deferida == 't') echo 'checked' ?> id="sim-defere" type="radio" name="deferida" value="t" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
+            <input <?php if (isset($a['data']->deferida) && $a['data']->deferida) echo 'checked' ?> id="sim-defere" type="radio" name="deferida" value="t" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
             <label for="sim-defere" class="block ml-2 text-sm font-medium text-meuCinza-900 dark:text-meuCinza-300">Sim</label>
           </div>
           <div class="flex items-center">
-            <input <?php if (!empty($a['data']) && $a['data']->deferida == 'f') echo 'checked' ?> id="nao-defere" type="radio" name="deferida" value="f" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
+            <input <?php if ((isset($a['data']->deferida) && !$a['data']->deferida) || isset($this->data['message']['error'])) echo 'checked' ?> id="nao-defere" type="radio" name="deferida" value="f" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
             <label for="nao-defere" class="block ml-2 text-sm font-medium text-meuCinza-900 dark:text-meuCinza-300">Não</label>
           </div>
           <div class="flex items-center">
-            <input <?php if (!empty($a['data']) && empty($a['data']->deferida)) echo 'checked' ?> id="depois-defere" type="radio" name="deferida" value="" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
+            <input <?php if (isset($a['data']->deferida) && is_null($a['data']->deferida)) echo 'checked' ?> id="depois-defere" type="radio" name="deferida" value="" class="w-4 h-4 border-meuCinza-300 focus:ring-2 focus:ring-meuTema-300 dark:focus:ring-meuTema-600 dark:focus:bg-meuTema-600 dark:bg-meuCinza-700 dark:border-meuCinza-600">
             <label for="depois-defere" class="block ml-2 text-sm font-medium text-meuCinza-900 dark:text-meuCinza-300">Decidir depois</label>
           </div>
         </fieldset>
       </div>
-      <div id="razao_indef" class="mb-6 <?php if(empty($a['data']->razao_indeferimento)) echo 'hidden' ?>">
+      <div id="razao_indef" class="mb-6 <?php if(empty($a['data']->razao_indeferimento) && !isset($this->data['message']['error'])) echo 'hidden' ?>">
         <label for="razao_indeferimento" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Razão do Indeferimento <span class="text-red-500">*</span></label>
-        <input name="razao_indeferimento" maxlength="200" value="<?= empty($a['data']) ? '' : $a['data']->razao_indeferimento ?>" type="text" id="razao_indeferimento" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500">
+        <input name="razao_indeferimento" maxlength="200" value="<?= isset($a['data']->razao_indeferimento) ? $a['data']->razao_indeferimento : '' ?>" type="text" id="razao_indeferimento" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500">
         <span class="text-red-500"><?= validation_show_error('razao_indeferimento'); ?></span>
       </div>
 

@@ -2,9 +2,9 @@
 
 namespace App\LayerExternal\Controllers;
 
-use App\Modules\Aluno\AlunoModel;
-use App\Modules\AtividadeComplementar\AtividadeComplementarModel;
-use App\Modules\TpAtividade\TpAtividadeModel;
+use App\LayerExternal\Repositories\InPostgres\AlunoModel;
+use App\LayerExternal\Repositories\InPostgres\AtividadeComplementarModel;
+use App\LayerExternal\Repositories\InPostgres\RelatorioModel;
 
 class RelatorioController extends _BaseController
 {
@@ -15,7 +15,7 @@ class RelatorioController extends _BaseController
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
         }
-        return view('Relatorio/Views/atividadesList', $data);
+        return view('RelatorioViews/atividadesList', $data);
     }
 
     public function alunosList(): string
@@ -39,7 +39,7 @@ class RelatorioController extends _BaseController
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
         }
-        return view('Relatorio/Views/alunosList', $data);
+        return view('RelatorioViews/alunosList', $data);
     }
 
     public function alunoDetalhes($id)
@@ -50,6 +50,6 @@ class RelatorioController extends _BaseController
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
         }
-        return view('Relatorio/Views/alunoDetalhes', $data);
+        return view('RelatorioViews/alunoDetalhes', $data);
     }
 }

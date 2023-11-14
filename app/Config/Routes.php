@@ -41,27 +41,27 @@ $routes->post('/aluno/editar/(:any)', 'AlunoController::update/$1');
 $routes->get('/aluno/deletar/(:any)', 'AlunoController::delete/$1');
 
 // ATIVIDADES COMPLEMENTARES
-// $routes->get('/atividades-complementares', 'AtividadeComplementar\AtividadeComplementarController::index');
-// $routes->get('/atividade-complementar/novo', 'AtividadeComplementar\AtividadeComplementarController::showFormCreate');
-// $routes->post('/atividade-complementar/novo', 'AtividadeComplementar\AtividadeComplementarController::create');
-// $routes->get('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::showFormEdit/$1');
-// $routes->post('/atividade-complementar/editar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::update/$1');
-// $routes->get('/atividade-complementar/deletar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::delete/$1');
-// $routes->get('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividadeForm/$1');
-// $routes->post('/atividade-complementar/analisar/(:any)', 'AtividadeComplementar\AtividadeComplementarController::analisarAtividade/$1');
+$routes->get('/atividades-complementares', 'AtividadeComplementarController::index');
+$routes->get('/atividade-complementar/novo', 'AtividadeComplementarController::showFormCreate');
+$routes->post('/atividade-complementar/novo', 'AtividadeComplementarController::create');
+$routes->get('/atividade-complementar/editar/(:any)', 'AtividadeComplementarController::showFormEdit/$1');
+$routes->post('/atividade-complementar/editar/(:any)', 'AtividadeComplementarController::update/$1');
+$routes->get('/atividade-complementar/deletar/(:any)', 'AtividadeComplementarController::delete/$1');
+$routes->get('/atividade-complementar/analisar/(:any)', 'AtividadeComplementarController::analisarAtividadeForm/$1');
+$routes->post('/atividade-complementar/analisar/(:any)', 'AtividadeComplementarController::analisarAtividade/$1');
 
 // // TIPOS DE ATIVIDADES
-// $routes->get('/tp-atividades', 'TpAtividade\TpAtividadeController::index');
-// $routes->get('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::showFormCreate');
-// $routes->post('/tp-atividade/novo', 'TpAtividade\TpAtividadeController::create');
-// $routes->get('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::showFormEdit/$1');
-// $routes->post('/tp-atividade/editar/(:any)', 'TpAtividade\TpAtividadeController::update/$1');
-// $routes->get('/tp-atividade/deletar/(:any)', 'TpAtividade\TpAtividadeController::delete/$1');
+$routes->get('/tp-atividades', 'TpAtividadeController::index');
+$routes->get('/tp-atividade/novo', 'TpAtividadeController::showFormCreate');
+$routes->post('/tp-atividade/novo', 'TpAtividadeController::create');
+$routes->get('/tp-atividade/editar/(:any)', 'TpAtividadeController::showFormEdit/$1');
+$routes->post('/tp-atividade/editar/(:any)', 'TpAtividadeController::update/$1');
+$routes->get('/tp-atividade/deletar/(:any)', 'TpAtividadeController::delete/$1');
 
 // // RELATÓRIOS
-// $routes->get('/relatorios/atividades', 'Relatorio\RelatorioController::atividadesList');
-// $routes->get('/relatorios/alunos', 'Relatorio\RelatorioController::alunosList');
-// $routes->get('/relatorios/aluno/(:any)/detalhes', 'Relatorio\RelatorioController::alunoDetalhes/$1');
+$routes->get('/relatorios/atividades', 'RelatorioController::atividadesList');
+$routes->get('/relatorios/alunos', 'RelatorioController::alunosList');
+$routes->get('/relatorios/aluno/(:any)/detalhes', 'RelatorioController::alunoDetalhes/$1');
 
 
 /*

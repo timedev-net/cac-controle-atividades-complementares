@@ -69,7 +69,7 @@
     if (messageEl) {
         const messagesArray = Object.entries(JSON.parse(messageEl.innerText))
 
-        let temp = 3000
+        let temp = 5000
         for (const [key, value] of messagesArray) {
             if (key === 'success') {
                 const tSuccess = new Dismiss(toastSuccess)

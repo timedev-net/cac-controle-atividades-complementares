@@ -5,7 +5,7 @@
     <p class="dark:text-meuBranco text-3xl text-center font-semibold pb-4">Relatório de Alunos</p>
     <div class="relative shadow-md sm:rounded-lg">
       <div class="p-3 md:p-4 flex flex-wrap gap-3 items-center justify-center pb-4 bg-meuBranco dark:bg-meuTema-800">
-        <label for="table-search" class="sr-only">Pesquisa</label>
+        <span for="table-search" class="sr-only">Pesquisa</span>
         <form action="?search=" class="relative">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg class="w-4 h-4 text-meuCinza-400 dark:text-meuCinza-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -32,8 +32,9 @@
           <tbody>
             <?php foreach ($this->data['data'] as $i => $e) : ?>
 
-              <tr onclick="verDatalhes(<?= $e->id; ?>)" class="cursor-pointer bg-meuBranco border-b dark:bg-meuTema-800 dark:border-meuCinza-700 hover:bg-meuTema-50 dark:hover:bg-meuTema-600">
-                <span id="payload-<?= $e->id; ?>" hidden class="w-4 px-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= isset($e->atividades_concluidas)? json_encode($e->atividades_concluidas) :''; ?></span>
+              <tr onclick="verDatalhes(<?= $i; ?>)" class="cursor-pointer bg-meuBranco border-b dark:bg-meuTema-800 dark:border-meuCinza-700 hover:bg-meuTema-50 dark:hover:bg-meuTema-600">
+                <span id="uuid-<?= $i; ?>" hidden><?= $e->id; ?></span>
+                <span id="payload-<?= $i; ?>" hidden><?= isset($e->atividades_concluidas)? json_encode($e->atividades_concluidas) :''; ?></span>
                 <td class="w-4 px-4 text-meuTexto-tdClaro dark:text-meuTexto-tdEscuro"><?= $e->id; ?></td>
                 <td scope="row" class="flex items-center px-6 py-4 text-meuCinza-900 meuBrancospace-nowrap dark:text-meuBranco">
                   <div class="pl-3">
@@ -83,7 +84,7 @@
   </div>
 
   <?= $this->include('_config/alerts/messageToast'); ?>
-  <?= $this->include('_config/alerts/confirmDeleteModal'); ?>
+
 
   <script>
     let idAluno;
@@ -96,10 +97,10 @@
       window.open(`/aluno/deletar/${idAluno}`, "_self")
     }
 
-    function verDatalhes(id) {
-      const payload = document.querySelector('#payload-' + id).innerText
-      // console.log(id, payload)
-      window.open(`/relatorios/aluno/${id}/detalhes?payload=${payload}`, "_self")
+    function verDatalhes(i) {
+      const payload = document.querySelector('#payload-' + i).innerText
+      const uuid = document.querySelector('#uuid-' + i).innerText
+      window.open(`/relatorios/aluno/${uuid}/detalhes?payload=${payload}`, "_self")
     }
   </script>
 
