@@ -80,6 +80,18 @@ php spark migrate:rollback
 ```
 php spark migrate:refresh
 ```
+- Criar um link simbólico para tornar a execução dos testes um pouco mais agradável
+```
+ln -s ./vendor/bin/phpunit ./phpunit
+```
+- Executa os testes
+```
+./phpunit
+```
+- Executa um arquivo de testes específico
+```
+./phpunit [NomeDaClasse]
+```
 
 ## Diagrama Entidade Relacionamento - modelo físico
 <img src="/public/assets/MER.png" alt="DER">
