@@ -10,7 +10,7 @@ $routes->setDefaultNamespace('App\LayerExternal\Controllers');
 $routes->get('/', 'HomeController::index');
 
 
-// ALUNOS
+// ROTAS DE ALUNOS
 $routes->get('/alunos', 'Alunos\ListarAlunosController::execute');
 $routes->get('/aluno/editar/(:any)', 'Alunos\ExibeFormularioController::execute/$1');
 $routes->get('/aluno/novo', 'Alunos\ExibeFormularioController::execute');
