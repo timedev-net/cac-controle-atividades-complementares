@@ -64,7 +64,7 @@ if(isset($a['data'])) $a['data'] = (object)$a['data'];
       </div>
       <div class="mb-6">
         <label for="obs_complementares" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Observações complementares</label>
-        <textarea rows="4" name="obs_complementares" id="obs_complementares" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500"><?= empty($a['data']) ? '' : $a['data']->obs_complementares ?></textarea>
+        <textarea rows="4" name="obs_complementares" id="obs_complementares" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500"><?= empty($a['data']->obs_complementares) ? '' : $a['data']->obs_complementares ?></textarea>
         <span class="text-red-500"><?= validation_show_error('obs_complementares'); ?></span>
       </div>
       <button type="submit" class="text-white bg-meuTema-700 hover:bg-meuTema-800 focus:ring-4 focus:outline-none focus:ring-meuTema-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-meuTema-600 dark:hover:bg-meuTema-700 dark:focus:ring-meuTema-800">Salvar</button>

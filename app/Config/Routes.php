@@ -20,12 +20,12 @@ $routes->get('/aluno/deletar/(:any)', 'Alunos\RemoverAlunoController::execute/$1
 
 // ATIVIDADES COMPLEMENTARES
 $routes->get('/atividades-complementares', 'AtividadeComplementarController::index');
-$routes->get('/atividade-complementar/novo', 'AtividadeComplementarController::showFormCreate');
-$routes->post('/atividade-complementar/novo', 'AtividadeComplementarController::create');
-$routes->get('/atividade-complementar/editar/(:any)', 'AtividadeComplementarController::showFormEdit/$1');
-$routes->post('/atividade-complementar/editar/(:any)', 'AtividadeComplementarController::update/$1');
+$routes->get('/atividade-complementar/novo', 'AtividadeComplementarController::showForm');
+$routes->get('/atividade-complementar/editar/(:any)', 'AtividadeComplementarController::showForm/$1');
+$routes->post('/atividade-complementar/novo', 'AtividadeComplementarController::save');
+$routes->post('/atividade-complementar/editar/(:any)', 'AtividadeComplementarController::save/$1');
 $routes->get('/atividade-complementar/deletar/(:any)', 'AtividadeComplementarController::delete/$1');
-$routes->get('/atividade-complementar/analisar/(:any)', 'AtividadeComplementarController::analisarAtividadeForm/$1');
+$routes->get('/atividade-complementar/analisar/(:any)', 'AtividadeComplementarController::showFormAnalisarAtividade/$1');
 $routes->post('/atividade-complementar/analisar/(:any)', 'AtividadeComplementarController::analisarAtividade/$1');
 
 // // TIPOS DE ATIVIDADES
