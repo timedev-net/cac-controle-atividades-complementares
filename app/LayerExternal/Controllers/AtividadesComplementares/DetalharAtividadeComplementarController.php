@@ -4,20 +4,20 @@ namespace App\LayerExternal\Controllers;
 
 use App\LayerDomain\UseCases\AtividadeComplementarUseCase;
 use App\LayerExternal\Adapters\UuidAdapter;
-use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
-use App\LayerExternal\Repositories\InPostgres\AtividadesComplementaresRepo;
-use App\LayerExternal\Repositories\InPostgres\TpsAtividadesRepo;
+use App\LayerExternal\Repositories\InPostgres\AlunoModel;
+use App\LayerExternal\Repositories\InPostgres\AtividadeComplementarModel;
+use App\LayerExternal\Repositories\InPostgres\TpAtividadeModel;
 use App\LayerExternal\Validations\AtividadeComplementarValidate;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
-class AtividadeComplementarController extends _BaseController
+class DetalharAtividadeComplementarController extends _BaseController
 {
     private $useCase;
     protected $helpers = ['form'];
 
     public function __construct() {
-        // $this->useCase = new AtividadesComplementaresRepo();
-        $this->useCase = new AtividadeComplementarUseCase(new UuidAdapter(), new AtividadesComplementaresRepo());
+        // $this->useCase = new AtividadeComplementarModel();
+        $this->useCase = new AtividadeComplementarUseCase(new UuidAdapter(), new AtividadeComplementarModel());
     }
 
     public function index(): string
@@ -34,8 +34,8 @@ class AtividadeComplementarController extends _BaseController
 
     public function showFormCreate(): string
     {
-        $alunos = new AlunosRepo();
-        $tp_atividades = new TpsAtividadesRepo();
+        $alunos = new AlunoModel();
+        $tp_atividades = new TpAtividadeModel();
         $data = [
             'alunos' => $alunos->getIdAndNameOfAllToSelectInput(),
             'tp_atividades' => $tp_atividades->getIdAndNameOfAllToSelectInput()
@@ -58,8 +58,8 @@ class AtividadeComplementarController extends _BaseController
     }
 
     public function showFormEdit($id): string {
-        $alunos = new AlunosRepo();
-        $tp_atividades = new TpsAtividadesRepo();
+        $alunos = new AlunoModel();
+        $tp_atividades = new TpAtividadeModel();
         $data = [
             'id' => $id,
             'data' => $this->useCase->detalharAtividadeComplementar($id)->getAllProps(),
@@ -98,8 +98,8 @@ class AtividadeComplementarController extends _BaseController
     }
 
     public function analisarAtividadeForm($id) {
-        $alunos = new AlunosRepo();
-        $tp_atividades = new TpsAtividadesRepo();
+        $alunos = new AlunoModel();
+        $tp_atividades = new TpAtividadeModel();
         $atv_comp = $this->useCase->detalharAtividadeComplementar($id);
         $data = [
             'id' => $id,

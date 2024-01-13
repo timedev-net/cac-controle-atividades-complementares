@@ -11,12 +11,12 @@ $routes->get('/', 'HomeController::index');
 
 
 // ALUNOS
-$routes->get('/alunos', 'AlunoController::index');
-$routes->get('/aluno/novo', 'AlunoController::showFormCreate');
-$routes->post('/aluno/novo', 'AlunoController::create');
-$routes->get('/aluno/editar/(:any)', 'AlunoController::showFormEdit/$1');
-$routes->post('/aluno/editar/(:any)', 'AlunoController::update/$1');
-$routes->get('/aluno/deletar/(:any)', 'AlunoController::delete/$1');
+$routes->get('/alunos', 'Alunos\ListarAlunosController::execute');
+$routes->get('/aluno/editar/(:any)', 'Alunos\ExibeFormularioController::execute/$1');
+$routes->get('/aluno/novo', 'Alunos\ExibeFormularioController::execute');
+$routes->post('/aluno/novo', 'Alunos\SalvarAlunoController::execute');
+$routes->post('/aluno/editar/(:any)', 'Alunos\SalvarAlunoController::execute/$1');
+$routes->get('/aluno/deletar/(:any)', 'Alunos\RemoverAlunoController::execute/$1');
 
 // ATIVIDADES COMPLEMENTARES
 $routes->get('/atividades-complementares', 'AtividadeComplementarController::index');

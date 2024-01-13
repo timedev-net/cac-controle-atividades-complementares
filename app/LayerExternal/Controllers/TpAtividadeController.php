@@ -4,7 +4,7 @@ namespace App\LayerExternal\Controllers;
 
 use App\LayerDomain\UseCases\TpAtividadeUseCase;
 use App\LayerExternal\Adapters\UuidAdapter;
-use App\LayerExternal\Repositories\InPostgres\TpAtividadeModel;
+use App\LayerExternal\Repositories\InPostgres\TpsAtividadesRepo;
 // use App\Modules\TpAtividade\Utils\TpAtividadeValidate;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
@@ -15,8 +15,8 @@ class TpAtividadeController extends _BaseController
     protected $helpers = ['form'];
 
     public function __construct() {
-        // $this->useCase = new TpAtividadeModel();
-        $this->useCase = new TpAtividadeUseCase(new UuidAdapter(), new TpAtividadeModel());
+        // $this->useCase = new TpsAtividadesRepo();
+        $this->useCase = new TpAtividadeUseCase(new UuidAdapter(), new TpsAtividadesRepo());
     }
 
     public function index(): string

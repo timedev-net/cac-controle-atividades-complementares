@@ -1,11 +1,11 @@
 <?php
 namespace App\LayerDomain\UseCases\Aluno;
-use App\LayerDomain\Interfaces\IRepository;
+use App\LayerDomain\Interfaces\IRepositoryRemove;
 
-class RemoverRegistroAlunoUseCase {
+class RemoverAlunoUseCase {
 
-    protected IRepository $repository;
-    public function __construct(IRepository $instance_repo_aluno) {
+    protected IRepositoryRemove $repository;
+    public function __construct(IRepositoryRemove $instance_repo_aluno) {
         $this->repository = $instance_repo_aluno;
     }
 

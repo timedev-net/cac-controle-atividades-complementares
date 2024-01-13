@@ -1,5 +1,6 @@
 <?php echo $this->extend('_config/Layout/mainLayout'); ?>
 <?php echo $this->section('conteudo'); ?>
+<?= $this->include('_config/alerts/messageToast'); ?>
 
 <section class="mb-4 bg-center bg-no-repeat bg-[url('/assets/conference.jpg')] bg-gray-700 bg-blend-multiply">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">

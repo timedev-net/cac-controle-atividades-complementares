@@ -32,8 +32,8 @@ class AlunoUseCase {
         $data['id'] = $id;
         $this->repository->update(new Aluno($data));
     }
-    public function removerAluno(string $id): void {
-        $this->repository->remove($id);
-    }
+    // public function removerAluno(string $id): void {
+    //     $this->repository->remove($id);
+    // }
 
 }

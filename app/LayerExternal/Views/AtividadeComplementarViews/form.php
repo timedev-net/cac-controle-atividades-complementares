@@ -43,8 +43,8 @@ if(isset($a['data'])) $a['data'] = (object)$a['data'];
         <span class="text-red-500"><?= validation_show_error('ano_letivo'); ?></span>
       </div>
       <div class="mb-6">
-        <label for="periodo_letivo" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Período letivo <span class="text-red-500">*</span></label>
-        <input name="periodo_letivo" value="<?= empty($a['data']) ? '' : $a['data']->periodo_letivo ?>" type="text" id="periodo_letivo" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" required>
+        <label for="periodo_letivo" class="block mb-2 text-sm font-medium text-meuCinza-900 dark:text-white">Período letivo (1 ou 2) <span class="text-red-500">*</span></label>
+        <input name="periodo_letivo" value="<?= empty($a['data']) ? '' : $a['data']->periodo_letivo ?>" type="number" min="1" max="2" id="periodo_letivo" class="bg-meuTema-50 border border-meuCinza-300 text-meuCinza-900 text-sm rounded-lg focus:ring-meuTema-500 focus:border-meuTema-500 block w-full p-2.5 dark:bg-meuTema-700 dark:border-meuCinza-600 dark:placeholder-meuCinza-400 dark:text-white dark:focus:ring-meuTema-500 dark:focus:border-meuTema-500" required>
         <span class="text-red-500"><?= validation_show_error('periodo_letivo'); ?></span>
       </div>
       <div class="mb-6">

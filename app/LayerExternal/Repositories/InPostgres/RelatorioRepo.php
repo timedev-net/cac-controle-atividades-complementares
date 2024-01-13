@@ -5,7 +5,7 @@ namespace App\LayerExternal\Repositories\InPostgres;
 use CodeIgniter\Database\RawSql;
 use CodeIgniter\Model;
 
-class RelatorioModel extends Model
+class RelatorioRepo extends Model
 {
     public function __construct()
     {

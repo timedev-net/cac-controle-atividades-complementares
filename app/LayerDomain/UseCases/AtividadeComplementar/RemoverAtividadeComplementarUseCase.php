@@ -1,12 +1,12 @@
 <?php
 namespace App\LayerDomain\UseCases\AtividadeComplementar;
 
-use App\LayerDomain\Interfaces\IRepository;
+use App\LayerDomain\Interfaces\IRepositoryRemove;
 
 class RemoverAtividadeComplementarUseCase {
 
-    protected IRepository $repository;
-    public function __construct(IRepository $instance_repo) {
+    protected IRepositoryRemove $repository;
+    public function __construct(IRepositoryRemove $instance_repo) {
         $this->repository = $instance_repo;
     }
 

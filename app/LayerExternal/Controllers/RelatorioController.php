@@ -2,15 +2,15 @@
 
 namespace App\LayerExternal\Controllers;
 
-use App\LayerExternal\Repositories\InPostgres\AlunoModel;
-use App\LayerExternal\Repositories\InPostgres\AtividadeComplementarModel;
-use App\LayerExternal\Repositories\InPostgres\RelatorioModel;
+use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
+use App\LayerExternal\Repositories\InPostgres\AtividadesComplementaresRepo;
+use App\LayerExternal\Repositories\InPostgres\RelatorioRepo;
 
 class RelatorioController extends _BaseController
 {
     public function atividadesList(): string
     {
-        $atividadeModel = new AtividadeComplementarModel();
+        $atividadeModel = new AtividadesComplementaresRepo();
         $data = $atividadeModel->getAll($_GET);
         if (!empty($this->session->getFlashdata())) {
             $data['message'] = $this->session->getFlashdata();
@@ -20,9 +20,9 @@ class RelatorioController extends _BaseController
 
     public function alunosList(): string
     {
-        $alunoModel = new AlunoModel();
-        $data = $alunoModel->getAll($_GET);
-        $model = new RelatorioModel();
+        $alunosRepo = new AlunosRepo();
+        $data = $alunosRepo->getAll($_GET);
+        $model = new RelatorioRepo();
         $alunosOk = $model->alunosComTodasAtividadesCurricularesOk();
         foreach ($data['data'] as $e) {
             if (count($filtered = array_filter($alunosOk, fn($a) => $a->aluno_id == $e->id)) > 0) {
@@ -44,7 +44,7 @@ class RelatorioController extends _BaseController
 
     public function alunoDetalhes($id)
     {
-        $model = new RelatorioModel();
+        $model = new RelatorioRepo();
         $data = $model->alunoAllDetalhes($id);
         $data['payload'] = json_decode($_GET['payload']);
         if (!empty($this->session->getFlashdata())) {

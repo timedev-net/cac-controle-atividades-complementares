@@ -8,8 +8,8 @@ use App\LayerDomain\Interfaces\IRepository;
 // use CodeIgniter\Model;
 use Exception;
 
-// class TpAtividadeModel extends Repository {
-class TpAtividadeModel implements IRepository {
+// class TpsAtividadesRepo extends Repository {
+class TpsAtividadesRepo implements IRepository {
 
     protected $db;
     protected $builder;

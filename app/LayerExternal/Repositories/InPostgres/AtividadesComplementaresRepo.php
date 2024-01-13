@@ -8,7 +8,7 @@ use App\LayerDomain\Interfaces\IRepositoryRemove;
 // use CodeIgniter\Model;
 use Exception;
 
-class AtividadeComplementarModel implements IRepository, IRepositoryRemove {
+class AtividadesComplementaresRepo implements IRepository, IRepositoryRemove {
 
   protected $db;
   protected $builder;

@@ -5,7 +5,7 @@ use App\LayerDomain\_Validations\AlunoValidation;
 use App\LayerDomain\Entities\Aluno;
 use App\LayerDomain\Interfaces\IRepository;
 
-class AtualizarRegistroAlunoUseCase {
+class AtualizarAlunoUseCase {
 
     protected IRepository $repository;
     public function __construct(IRepository $instance_repo_aluno) {

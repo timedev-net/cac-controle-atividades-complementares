@@ -75,9 +75,9 @@
               </td>
             </tr>
             <?php endforeach; ?>
-          </tbody>
-        </table>
-      </div>
+        </tbody>
+      </table>
+    </div>
 
     <nav class="flex flex-wrap gap-2 items-center justify-between p-4 pt-4 bg-meuBranco dark:bg-meuTema-900" aria-label="Table navigation">
       <span class="text-sm font-normal text-meuCinza-400 dark:text-meuCinza-400">Exibindo a página <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $page; ?></span> de <span class="font-semibold text-meuCinza-900 dark:text-meuBranco"><?= $totalPages; ?></span></span>

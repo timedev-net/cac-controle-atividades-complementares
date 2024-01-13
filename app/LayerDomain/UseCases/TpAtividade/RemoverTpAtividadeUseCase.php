@@ -1,12 +1,12 @@
 <?php
 namespace App\LayerDomain\UseCases\TpAtividade;
 
-use App\LayerDomain\Interfaces\IRepository;
+use App\LayerDomain\Interfaces\IRepositoryRemove;
 
 class RemoverTpAtividadeUseCase {
 
-    protected IRepository $repository;
-    public function __construct(IRepository $instance_repo_tpatividade) {
+    protected IRepositoryRemove $repository;
+    public function __construct(IRepositoryRemove $instance_repo_tpatividade) {
         $this->repository = $instance_repo_tpatividade;
     }
 

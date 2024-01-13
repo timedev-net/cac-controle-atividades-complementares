@@ -8,12 +8,10 @@ class HomeController extends _BaseController
 {
     public function index(): string
     {
-        // $db = \Config\Database::connect();
-        // dd($db->query(new RawSql('CREATE TABLE teste (
-        //     brand VARCHAR(255),
-        //     model VARCHAR(255),
-        //     year INT
-        //   )')));
-        return view('HomeViews/index');
+        $data = [];
+        if (!empty($this->session->getFlashdata())) {
+            $data['message'] = $this->session->getFlashdata();
+        }
+        return view('HomeViews/index', $data);
     }
 }
