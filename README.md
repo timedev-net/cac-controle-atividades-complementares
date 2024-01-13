@@ -55,42 +55,50 @@ docker volume ls
 ```
 docker compose up -d
 ```
-4. Entra no terminal do container da aplicação para executar as _migrations_ e _seeders_
+4. Entra no terminal do Container da aplicação para executar as _migrations_ e _seeders_
 ```
 docker exec -it app_atvd_complement /bin/bash
 ```
-5. Executa as migrações de dentro do container
+5. Executa as migrações (dentro do Container)
 ```
 php spark migrate
 ```
-6. Semeia o banco de dados
+6. Semeia o banco de dados (dentro do Container)
 ```
 php spark db:seed RunSeeder
 ```
 ### Outros comandos úteis
-- Exibe o status das migrações
+- Exibe o status das migrações (dentro do Container)
 ```
 php spark migrate:status
 ```
-- Desfaz as migrações
+- Desfaz as migrações (dentro do Container)
 ```
 php spark migrate:rollback
 ```
-- Atualiza as migrações, desfaz tudo e executa novamente
+- Atualiza as migrações, desfaz tudo e executa novamente (dentro do Container)
 ```
 php spark migrate:refresh
 ```
-- Criar um link simbólico para tornar a execução dos testes um pouco mais agradável
+- Criar um link simbólico para tornar a execução dos testes um pouco mais agradável (dentro do Container)
 ```
 ln -s ./vendor/bin/phpunit ./phpunit
 ```
-- Executa os testes
+- Executa os testes (dentro do Container)
 ```
 ./phpunit
 ```
-- Executa um arquivo de testes específico
+- Executa um arquivo de testes específico (dentro do Container)
 ```
 ./phpunit [NomeDaClasse]
+```
+- Executa os testes (fora do Container)
+```
+docker exec app_atvd_complement ./phpunit
+```
+- Executa um arquivo de testes específico (fora do Container)
+```
+docker exec app_atvd_complement ./phpunit [NomeDaClasse]
 ```
 
 ## Diagrama Entidade Relacionamento - modelo físico
