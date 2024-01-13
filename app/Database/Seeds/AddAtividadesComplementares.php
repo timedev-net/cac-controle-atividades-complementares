@@ -9,11 +9,13 @@ class AddAtividadesComplementares extends Seeder
 {
     public function run()
     {
+        $aluno_id = $this->db->query('select id from instituicao.alunos')->getResult();
+        $tp_atividade_id = $this->db->query('select id from atividades.tp_atividades')->getResult();
         $data = [
             [
                 'nome_atividade' => 'Curso php',
-                'aluno_id'       => 1,
-                'tp_atividade_id'   => 1,
+                'aluno_id'       => $aluno_id[1-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[1-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -23,8 +25,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Curso Java',
-                'aluno_id'       => 1,
-                'tp_atividade_id'   => 1,
+                'aluno_id'       => $aluno_id[1-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[1-1]->id,
                 'ano_letivo'     => '2023',
                 'periodo_letivo' => '1',
                 'data_inicio'    => '2023-10-10',
@@ -34,8 +36,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Curso Python',
-                'aluno_id'       => 1,
-                'tp_atividade_id'   => 1,
+                'aluno_id'       => $aluno_id[1-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[1-1]->id,
                 'ano_letivo'     => '2023',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2023-10-10',
@@ -45,8 +47,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Artigo científico TCC',
-                'aluno_id'       => 1,
-                'tp_atividade_id'   => 2,
+                'aluno_id'       => $aluno_id[1-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[2-1]->id,
                 'ano_letivo'     => '2023',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2023-10-10',
@@ -56,8 +58,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'semestre regular',
-                'aluno_id'       => 1,
-                'tp_atividade_id'   => 3,
+                'aluno_id'       => $aluno_id[1-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[3-1]->id,
                 'ano_letivo'     => '2023',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2023-10-10',
@@ -67,8 +69,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer',
-                'aluno_id'       => 3,
-                'tp_atividade_id'   => 5,
+                'aluno_id'       => $aluno_id[3-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[5-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -78,8 +80,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer 5',
-                'aluno_id'       => 5,
-                'tp_atividade_id'   => 6,
+                'aluno_id'       => $aluno_id[5-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[6-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -89,8 +91,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer 4',
-                'aluno_id'       => 5,
-                'tp_atividade_id'   => 6,
+                'aluno_id'       => $aluno_id[5-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[6-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -100,8 +102,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Academic 6',
-                'aluno_id'       => 5,
-                'tp_atividade_id'   => 3,
+                'aluno_id'       => $aluno_id[5-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[3-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -111,8 +113,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer',
-                'aluno_id'       => 6,
-                'tp_atividade_id'   => 6,
+                'aluno_id'       => $aluno_id[6-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[6-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -122,8 +124,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer 1',
-                'aluno_id'       => 7,
-                'tp_atividade_id'   => 6,
+                'aluno_id'       => $aluno_id[7-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[6-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -133,8 +135,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer 2',
-                'aluno_id'       => 7,
-                'tp_atividade_id'   => 6,
+                'aluno_id'       => $aluno_id[7-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[6-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -144,8 +146,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer',
-                'aluno_id'       => 11,
-                'tp_atividade_id'   => 6,
+                'aluno_id'       => $aluno_id[11-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[6-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -155,8 +157,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade academica 1',
-                'aluno_id'       => 10,
-                'tp_atividade_id'   => 3,
+                'aluno_id'       => $aluno_id[10-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[3-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -166,8 +168,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade academica 2',
-                'aluno_id'       => 10,
-                'tp_atividade_id'   => 3,
+                'aluno_id'       => $aluno_id[10-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[3-1]->id,
                 'ano_letivo'     => '2023',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -177,8 +179,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Científica',
-                'aluno_id'       => 10,
-                'tp_atividade_id'   => 2,
+                'aluno_id'       => $aluno_id[10-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[2-1]->id,
                 'ano_letivo'     => '2023',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2023-10-10',
@@ -188,8 +190,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Curso Banco de Dados',
-                'aluno_id'       => 10,
-                'tp_atividade_id'   => 1,
+                'aluno_id'       => $aluno_id[10-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[1-1]->id,
                 'ano_letivo'     => '2023',
                 'periodo_letivo' => '1',
                 'data_inicio'    => '2023-10-10',
@@ -199,8 +201,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Curso de Programação Web',
-                'aluno_id'       => 10,
-                'tp_atividade_id'   => 1,
+                'aluno_id'       => $aluno_id[10-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[1-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -210,8 +212,8 @@ class AddAtividadesComplementares extends Seeder
             ],
             [
                 'nome_atividade' => 'Atividade Qualquer',
-                'aluno_id'       => 12,
-                'tp_atividade_id'   => 9,
+                'aluno_id'       => $aluno_id[12-1]->id,
+                'tp_atividade_id'   => $tp_atividade_id[9-1]->id,
                 'ano_letivo'     => '2022',
                 'periodo_letivo' => '2',
                 'data_inicio'    => '2022-10-10',
@@ -229,6 +231,7 @@ class AddAtividadesComplementares extends Seeder
             return $e;
         }, $data);
 
+        // dd($newdata);
         $this->db->table('atividades.atividades_complementares')->insertBatch($newdata);
     }
 }

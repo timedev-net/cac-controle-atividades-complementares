@@ -6,5 +6,5 @@ interface IRepository {
     public function getById(string $id): object;
     public function create(object $object): void;
     public function update(object $object): void;
-    public function remove(string $id): void;
+    // public function remove(string $id): void;
 }

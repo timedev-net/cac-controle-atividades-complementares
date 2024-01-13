@@ -18,4 +18,10 @@ class TpAtividadeValidation {
     static public function limite_hora($value) {
         if (strlen(trim($value)) == 0) throw new _ObrigatorioException();
     }
+
+    static public function all(array $data) {
+        TpAtividadeValidation::nome($data['nome']);
+        TpAtividadeValidation::curricular($data['curricular']);
+        TpAtividadeValidation::limite_hora($data['limite_hora']);
+    }
 }

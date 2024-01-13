@@ -4,10 +4,11 @@ namespace App\LayerExternal\Repositories\InPostgres;
 
 use App\LayerDomain\Entities\Aluno;
 use App\LayerDomain\Interfaces\IRepository;
+use App\LayerDomain\Interfaces\IRepositoryRemove;
 // use CodeIgniter\Model;
 use Exception;
 
-class AlunoModel implements IRepository {
+class AlunosRepo implements IRepository, IRepositoryRemove {
 
     protected $db;
     protected $builder;

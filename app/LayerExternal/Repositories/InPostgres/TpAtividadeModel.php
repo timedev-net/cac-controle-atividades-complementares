@@ -2,11 +2,13 @@
 
 namespace App\LayerExternal\Repositories\InPostgres;
 
+use App\LayerDomain\Interfaces\Repository;
 use App\LayerDomain\Entities\TpAtividade;
 use App\LayerDomain\Interfaces\IRepository;
 // use CodeIgniter\Model;
 use Exception;
 
+// class TpAtividadeModel extends Repository {
 class TpAtividadeModel implements IRepository {
 
     protected $db;
@@ -54,12 +56,12 @@ class TpAtividadeModel implements IRepository {
             throw new Exception($error['message'], $error['code']);
         }
     }
-    public function remove(string $id): void {
-        if (!$this->builder->delete(['id' => $id])) {
-            $error = $this->db->error();
-            throw new Exception($error['message'], $error['code']);
-        }
-    }
+    // public function remove(string $id): void {
+    //     if (!$this->builder->delete(['id' => $id])) {
+    //         $error = $this->db->error();
+    //         throw new Exception($error['message'], $error['code']);
+    //     }
+    // }
     public function getIdAndNameOfAllToSelectInput(): array {
         return $this->builder->select('a.id, a.nome, a.curricular')->get()->getResult();
     }
