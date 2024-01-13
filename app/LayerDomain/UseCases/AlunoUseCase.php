@@ -27,7 +27,6 @@ class AlunoUseCase {
         $data['created_at'] = date("Y-m-d H:i:s");
 
         $this->repository->create(new Aluno($data));
-        // print_r($data);
     }
     public function atualizarAluno(string $id, array $data): void {
         $data['id'] = $id;

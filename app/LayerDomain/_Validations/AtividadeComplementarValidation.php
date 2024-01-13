@@ -2,7 +2,6 @@
 
 namespace App\LayerDomain\_Validations;
 
-use App\LayerDomain\_Exceptions\_EmailValidoException;
 use App\LayerDomain\_Exceptions\_MaxLetrasException;
 use App\LayerDomain\_Exceptions\_MinLetrasException;
 use App\LayerDomain\_Exceptions\_ObrigatorioException;

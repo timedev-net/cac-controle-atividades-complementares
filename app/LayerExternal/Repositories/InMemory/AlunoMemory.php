@@ -4,9 +4,10 @@ namespace App\LayerExternal\Repositories\InMemory;
 
 use App\LayerDomain\Entities\Aluno;
 use App\LayerDomain\Interfaces\IRepository;
+use App\LayerDomain\Interfaces\IRepositoryRemove;
 use Exception;
 
-class AlunoMemory implements IRepository {
+class AlunoMemory implements IRepository, IRepositoryRemove {
 
     protected array $repo = [];
 

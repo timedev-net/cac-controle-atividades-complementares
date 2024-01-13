@@ -3,7 +3,7 @@ namespace App\LayerExternal\Controllers;
 
 use App\LayerDomain\UseCases\AlunoUseCase;
 use App\LayerExternal\Adapters\UuidAdapter;
-use App\LayerExternal\Repositories\InPostgres\AlunoModel;
+use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
 use App\LayerExternal\Validations\AlunoValidate;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
@@ -13,7 +13,7 @@ class AlunoController extends _BaseController
     protected $helpers = ['form'];
 
     public function __construct() {
-        $this->useCase = new AlunoUseCase(new UuidAdapter(), new AlunoModel());
+        $this->useCase = new AlunoUseCase(new UuidAdapter(), new AlunosRepo());
     }
 
     public function index() {
@@ -29,12 +29,16 @@ class AlunoController extends _BaseController
     }
 
     public function create() {
-        if (!$this->validate(AlunoValidate::getRulesValidation(null))) {
-            return redirect()->back()->withInput();
+        try {
+            $this->useCase->cadastrarAluno($_POST);
+            $this->session->setFlashdata('success', 'Aluno cadastrado com sucesso!');
+        } catch (\Throwable $th) {
+            if (!$this->validate(AlunoValidate::getRulesValidation(null))) {
+                return redirect()->back()->withInput();
+            }
+            $this->session->setFlashdata('error', $th->getMessage());
+            return redirect()->to('/alunos');
         }
-        $this->useCase->cadastrarAluno($_POST);
-        $this->session->setFlashdata('success', 'Aluno cadastrado com sucesso!');
-        return redirect()->to('/alunos');
     }
 
     public function showFormEdit($id) {

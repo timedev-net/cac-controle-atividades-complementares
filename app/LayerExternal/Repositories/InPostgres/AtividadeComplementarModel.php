@@ -4,11 +4,11 @@ namespace App\LayerExternal\Repositories\InPostgres;
 
 use App\LayerDomain\Entities\AtividadeComplementar;
 use App\LayerDomain\Interfaces\IRepository;
+use App\LayerDomain\Interfaces\IRepositoryRemove;
 // use CodeIgniter\Model;
 use Exception;
 
-class AtividadeComplementarModel implements IRepository
-{
+class AtividadeComplementarModel implements IRepository, IRepositoryRemove {
 
   protected $db;
   protected $builder;

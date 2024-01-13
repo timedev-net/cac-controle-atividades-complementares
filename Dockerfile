@@ -31,11 +31,12 @@ RUN docker-php-ext-configure intl \
 
 RUN docker-php-ext-install zip
 RUN docker-php-ext-install mbstring
-RUN docker-php-ext-install sockets 
-RUN docker-php-ext-install pgsql 
-RUN docker-php-ext-install soap 
-RUN docker-php-ext-install xml 
-RUN docker-php-ext-enable intl gd mbstring pgsql sockets
+RUN docker-php-ext-install sockets
+RUN docker-php-ext-install pgsql
+RUN docker-php-ext-install soap
+RUN docker-php-ext-install xml
+RUN docker-php-ext-enable intl gd pgsql sockets mbstring
+# RUN docker-php-ext-enable mbstring
 
 
 
@@ -51,6 +52,7 @@ RUN sudo apt-get update
 WORKDIR /var/www
 
 COPY ["composer.json", "composer.lock*", "./"]
+
 RUN composer install
 
 COPY . .
