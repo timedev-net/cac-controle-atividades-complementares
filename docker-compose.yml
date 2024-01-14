@@ -13,8 +13,8 @@ services:
     ports:
       - 8550:80
     # network_mode: "host"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
     depends_on:
       - postgres_db
   postgres_db:
