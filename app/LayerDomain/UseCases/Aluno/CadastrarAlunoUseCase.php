@@ -22,5 +22,4 @@ class CadastrarAlunoUseCase {
 
         $this->repository->create(new Aluno($data));
     }
-
 }

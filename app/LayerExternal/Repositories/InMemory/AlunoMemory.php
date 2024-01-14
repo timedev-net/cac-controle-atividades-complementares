@@ -11,7 +11,7 @@ class AlunoMemory implements IRepository, IRepositoryRemove {
 
     protected array $repo = [];
 
-    public function getAll(array $filters): array {
+    public function getAll(array $filters = []): array {
         return $this->repo;
     }
     public function getById(string $id): Aluno {

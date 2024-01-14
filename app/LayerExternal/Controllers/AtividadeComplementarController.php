@@ -8,9 +8,8 @@ use App\LayerDomain\UseCases\AtividadeComplementar\CadastrarAtividadeComplementa
 use App\LayerDomain\UseCases\AtividadeComplementar\DetalharAtividadeComplementarUseCase;
 use App\LayerDomain\UseCases\AtividadeComplementar\ListarAtividadeComplementarsUseCase;
 use App\LayerDomain\UseCases\AtividadeComplementar\RemoverAtividadeComplementarUseCase;
-use App\LayerDomain\UseCases\AtividadeComplementarUseCase;
 use App\LayerExternal\Adapters\UuidAdapter;
-use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
+use App\LayerExternal\Repositories\InPostgres\AlunosPostgres;
 use App\LayerExternal\Repositories\InPostgres\AtividadesComplementaresRepo;
 use App\LayerExternal\Repositories\InPostgres\TpsAtividadesRepo;
 use App\LayerExternal\Validations\AtividadeComplementarValidate;
@@ -41,7 +40,7 @@ class AtividadeComplementarController extends _BaseController
     }
 
     public function showForm($id = null): string {
-        $alunos = new AlunosRepo();
+        $alunos = new AlunosPostgres();
         $tp_atividades = new TpsAtividadesRepo();
 
         $data = [
@@ -104,7 +103,7 @@ class AtividadeComplementarController extends _BaseController
     }
 
     public function showFormAnalisarAtividade($id) {
-        $alunos = new AlunosRepo();
+        $alunos = new AlunosPostgres();
         $tp_atividades = new TpsAtividadesRepo();
         $useCase = new DetalharAtividadeComplementarUseCase(new AtividadesComplementaresRepo());
         $atv_comp = $useCase->execute($id);

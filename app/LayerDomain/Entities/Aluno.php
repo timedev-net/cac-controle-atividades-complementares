@@ -1,14 +1,8 @@
 <?php
-
 namespace App\LayerDomain\Entities;
-
 class Aluno {
-    private string $id;
-    private string $nome;
-    private string $matricula_suap;
-    private string $email;
+    private string $id, $nome, $matricula_suap, $email;
     private ?string $created_at;
-
     public function __construct(array $data) {
         $this->setId($data['id']);
         $this->setNome($data['nome']);
@@ -16,7 +10,6 @@ class Aluno {
         $this->setEmail($data['email']);
         if (isset($data['created_at'])) $this->setCreatedAt($data['created_at']);
     }
-
     public function getAllProps(): array {
 		$data = [
 			"id" => $this->getId(),
@@ -27,29 +20,21 @@ class Aluno {
 		if (isset($this->created_at)) $data["created_at"] = $this->getCreatedAt();
 		return $data;
     }
-
 	public function getId(): string {
 		return $this->id;
 	}
-
-	public function setId(string $id): self {
+	public function setId(string $id): void {
 		$this->id = $id;
-		return $this;
 	}
-
 	public function getNome(): string {
 		return $this->nome;
 	}
-
-	public function setNome(string $nome): self {
+	public function setNome(string $nome): void {
 		$this->nome = $nome;
-		return $this;
 	}
-
 	public function getMatriculaSuap(): string {
 		return $this->matricula_suap;
 	}
-
 	public function setMatriculaSuap(string $matricula_suap): self {
 		$this->matricula_suap = $matricula_suap;
 		return $this;

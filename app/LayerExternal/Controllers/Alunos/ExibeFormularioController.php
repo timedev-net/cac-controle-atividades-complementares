@@ -3,7 +3,7 @@ namespace App\LayerExternal\Controllers\Alunos;
 
 use App\LayerDomain\UseCases\Aluno\ExibirDetalhesAlunoUseCase;
 use App\LayerExternal\Controllers\_BaseController;
-use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
+use App\LayerExternal\Repositories\InPostgres\AlunosPostgres;
 
 class ExibeFormularioController extends _BaseController
 {
@@ -14,7 +14,7 @@ class ExibeFormularioController extends _BaseController
             if (!empty($this->session->getFlashdata())) $data['message'] = $this->session->getFlashdata();
 
             if (isset($id)) {
-                $useCase = new ExibirDetalhesAlunoUseCase(new AlunosRepo());
+                $useCase = new ExibirDetalhesAlunoUseCase(new AlunosPostgres());
                 $data = $useCase->execute($id)->getAllProps();
             }
 

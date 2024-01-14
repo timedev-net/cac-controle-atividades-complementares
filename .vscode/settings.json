@@ -17,7 +17,7 @@
         "vendor": "",
         "Home": "",
         "app": "",
-        "LayerInfrastructure": "src",
+        "LayerExternal": "src",
         "LayerDomain": "scala",
         "Entities": "resource",
         "UseCases": "class",

@@ -8,7 +8,7 @@ use App\LayerDomain\Interfaces\IRepositoryRemove;
 // use CodeIgniter\Model;
 use Exception;
 
-class AlunosRepo implements IRepository, IRepositoryRemove {
+class AlunosPostgres implements IRepository, IRepositoryRemove {
 
     protected $db;
     protected $builder;

@@ -3,7 +3,7 @@ namespace App\LayerExternal\Controllers\Alunos;
 
 use App\LayerDomain\UseCases\Aluno\RemoverAlunoUseCase;
 use App\LayerExternal\Controllers\_BaseController;
-use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
+use App\LayerExternal\Repositories\InPostgres\AlunosPostgres;
 use CodeIgniter\Database\Exceptions\DatabaseException;
 
 class RemoverAlunoController extends _BaseController
@@ -11,7 +11,7 @@ class RemoverAlunoController extends _BaseController
     public function execute($id) {
 
         try {
-            $useCase = new RemoverAlunoUseCase(new AlunosRepo());
+            $useCase = new RemoverAlunoUseCase(new AlunosPostgres());
             $useCase->execute($id);
             $this->session->setFlashdata('success', 'Registro excluído com sucesso!');
         } catch (DatabaseException $e) {

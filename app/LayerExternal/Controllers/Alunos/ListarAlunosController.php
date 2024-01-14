@@ -3,14 +3,14 @@ namespace App\LayerExternal\Controllers\Alunos;
 
 use App\LayerDomain\UseCases\Aluno\ListarAlunosUseCase;
 use App\LayerExternal\Controllers\_BaseController;
-use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
+use App\LayerExternal\Repositories\InPostgres\AlunosPostgres;
 
 class ListarAlunosController extends _BaseController
 {
     public function execute() {
 
         try {
-            $useCase = new ListarAlunosUseCase(new AlunosRepo());
+            $useCase = new ListarAlunosUseCase(new AlunosPostgres());
             $data = $useCase->execute($_GET);
             if (!empty($this->session->getFlashdata())) {
                 $data['message'] = $this->session->getFlashdata();
