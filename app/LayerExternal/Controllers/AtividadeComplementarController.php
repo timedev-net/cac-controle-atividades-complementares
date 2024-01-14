@@ -26,7 +26,7 @@ class AtividadeComplementarController extends _BaseController
     //     $this->useCase = new AtividadeComplementarUseCase(new UuidAdapter(), new AtividadesComplementaresRepo());
     // }
 
-    public function index(): string
+    public function index(): mixed
     {
         try {
             $useCase = new ListarAtividadeComplementarsUseCase(new AtividadesComplementaresRepo());

@@ -2,7 +2,7 @@
 
 namespace App\LayerExternal\Controllers;
 
-use App\LayerExternal\Repositories\InPostgres\AlunosRepo;
+use App\LayerExternal\Repositories\InPostgres\AlunosPostgres;
 use App\LayerExternal\Repositories\InPostgres\AtividadesComplementaresRepo;
 use App\LayerExternal\Repositories\InPostgres\RelatorioRepo;
 
@@ -20,8 +20,8 @@ class RelatorioController extends _BaseController
 
     public function alunosList(): string
     {
-        $alunosRepo = new AlunosRepo();
-        $data = $alunosRepo->getAll($_GET);
+        $AlunosPostgres = new AlunosPostgres();
+        $data = $AlunosPostgres->getAll($_GET);
         $model = new RelatorioRepo();
         $alunosOk = $model->alunosComTodasAtividadesCurricularesOk();
         foreach ($data['data'] as $e) {

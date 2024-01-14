@@ -13,8 +13,8 @@ services:
     ports:
       - 8550:80
     # network_mode: "host"
-    # extra_hosts:
-    #   - "host.docker.internal:host-gateway"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       - postgres_db
   postgres_db:
@@ -27,6 +27,7 @@ services:
       POSTGRES_PASSWORD: senha
       POSTGRES_DB: atvd_complement
     ports:
+      # - 5432:5432
       - 8551:5432
 volumes:
   db-atvd-complement:
